@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import pymysql
+
+pymysql.version_info = (1, 3, 13, "final", 0)
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,12 +86,12 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-	'ENGINE': 'django.db.backends.mysql',
-	'NAME': 'linuxid_blog',
-	'USER': 'root',
-	'PASSWORD': 'bug123',
-	'HOST': 'localhost',
-	'PORT': '3306',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'linuxid_blog',
+        'USER': 'root',
+        'PASSWORD': 'bug123',
+        'HOST': 'localhost',
+        'PORT': '3306',
     } 
 }
 
