@@ -35,7 +35,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">Linux-id.net</a>
+                <a class="navbar-brand" href="{% url 'blog_index' %}">Linux-id.net</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="{% url 'home' %}">Home</a>
+                            <a class="nav-link text-black font-weight-bold" href="{% url 'blog_index' %}">Home</a>
                         </li>
                         <li class="nav-item text-black">
                             <a class="nav-link text-black font-weight-bold" href="#">About</a>
@@ -60,10 +60,47 @@
         </nav>
         <!-- End Navigation -->
 
+        <style>
+            body {
+                font-family: "Roboto", sans-serif;
+                font-size: 18px;
+                background-color: #fdfdfd;
+            }
+            
+            .head_text {
+                color: white;
+            }
+            
+            .card {
+                box-shadow: 0 16px 48px #E3E7EB;
+            }
+        </style>
+        
+        <header class="masthead">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class=" col-md-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to my awesome Blog </h3>
+                            <p class="text-light">We Love Django As much as you do..! &nbsp
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <!-- Blog Entries Column -->
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
-
+              
+            
+            
+            </div>
+        </div>
         <!-- Footer -->
         <footer class="py-3 bg-grey">
             <p class="m-0 text-dark text-center">
