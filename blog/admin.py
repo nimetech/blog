@@ -9,6 +9,12 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
 
+    # def category(self):
+    #     return ",".join([str(p) for p in self.category.all()])
+
+                # return ",".join([str(p) for p in self.parent.all()])
+
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     # pass
