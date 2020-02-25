@@ -1,2 +1,3 @@
-linuxidnet/settings.py
-
+.DS_Store
+.git
+linuxid/linuxidnet/settings.py
