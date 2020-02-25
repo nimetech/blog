@@ -24,7 +24,7 @@ def blog_index(request):
 
 def blog_category(request, category):
     posts = Post.objects.filter(
-        categories__name__contains = category
+        category__name__contains = category
     ).order_by('-created_on')
     context = {
         'category': category,
