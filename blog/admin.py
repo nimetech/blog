@@ -15,7 +15,7 @@ class PostAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'parent')
-
+    prepopulated_fields = {'slug':('name',)}
 
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name',)

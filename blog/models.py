@@ -11,7 +11,7 @@ STATUS = (
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
-    parent = models.ForeignKey('self', blank=True, null=True, on_delete=models.CASCADE, related_name='children')
+    parent = models.ForeignKey('self', blank=True, null=True, on_delete=models.CASCADE, related_name='children', default='')
     
     class Meta:
         unique_together = ('slug', 'parent',)
@@ -43,7 +43,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     # category = models.ForeignKey(Category, on_delete= models.CASCADE, related_name= 'posts', default='')
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name= 'posts')
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name= 'posts_category')
     tag = models.ManyToManyField(Tag, related_name= 'tags_post')
 
     class Meta:

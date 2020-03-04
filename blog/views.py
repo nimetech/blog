@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # from django.views import generic
-from blog.models import Post
+from blog.models import Post, Category, Tag
 
 # Create your views here.
 # def blog(request):
@@ -22,13 +22,22 @@ def blog_index(request):
     return render(request, "index.html", context)
 
 
-def blog_category(request, category):
-    posts = Post.objects.filter(
-        category__name__contains = category
-    ).order_by('-created_on')
+# def blog_category(request, category):
+#     posts = Post.objects.get(
+#         categories__name__slug = slug
+#     ).order_by('-created_on')
+#     context = {
+#         'category': category,
+#         'posts': posts,
+#     }
+#     return render(request, "category.html", context)
+
+def blog_category(request,slug):
+    posts = Post.objects.filter( category_id__slug = slug )
     context = {
-        'category': category,
-        'posts': posts      
+        # 'posts_category' : posts_category,
+        'posts' : posts,
+        # 'posts_category' : posts,
     }
     return render(request, "category.html", context)
 
