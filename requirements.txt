@@ -1,0 +1,6 @@
+django
+django-ckeditor
+virtualenv
+mysqlclient
+pymysql
+cryptography
