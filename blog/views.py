@@ -15,7 +15,7 @@ from blog.models import Post, Category, Tag
 #     template_name = 'post_detail.html'
 
 def blog_index(request):
-    posts = Post.objects.all().order_by('-created_on')
+    posts = Post.objects.filter(status = 1).order_by('-created_on')
     context = {
         'posts': posts,
     }

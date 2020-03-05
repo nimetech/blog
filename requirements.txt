@@ -1,5 +1,6 @@
 django
 django-ckeditor
+pillow
 virtualenv
 mysqlclient
 pymysql
