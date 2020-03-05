@@ -39,7 +39,7 @@ def post_detail(request, slug):
 #     return render(request, "category.html", context)
 
 def category_post(request,slug):
-    posts = Post.objects.filter( category_id__slug = slug )
+    posts = Post.objects.filter( category_id__slug = slug, status = 1 )
     context = {
         # 'posts_category' : posts_category,
         'posts' : posts,
@@ -49,7 +49,7 @@ def category_post(request,slug):
 
 
 def tag_post(request, slug):
-    posts = Post.objects.filter( tag__slug = slug )
+    posts = Post.objects.filter( tag__slug = slug, status = 1 )
     context = {
         'posts' : posts,
     }
