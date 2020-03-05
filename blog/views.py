@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # from django.views import generic
-from blog.models import Post, Category, Tag
+from blog.models import Post, Category, Tag, Page
 
 # Create your views here.
 # def blog(request):
@@ -54,3 +54,10 @@ def tag_post(request, slug):
         'posts' : posts,
     }
     return render(request, "tag.html", context)
+
+def blog_page(request, slug):
+    page = Page.objects.get(slug=slug)
+    context = {
+        'page' : page,
+    }
+    return render(request, "page.html", context)

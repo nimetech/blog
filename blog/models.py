@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
+
 STATUS = (
     (0, "Draft"),
     (1, "Publish")
@@ -54,3 +55,15 @@ class Post(models.Model):
 
     def tags(self):
         return "\n".join([t.name for t in self.tag.all()])
+
+class Page(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_page', default=1)
+    content = RichTextUploadingField()
+    status = models.IntegerField(choices=STATUS,default=0)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.title

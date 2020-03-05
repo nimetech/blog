@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from blog.models import Post, Category, Tag
+from blog.models import Post, Category, Tag, Page
 
 class PostAdmin(admin.ModelAdmin):
     # field = ['tag']
@@ -9,9 +9,6 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
-
-    # def get_tag(self):
-
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'parent')
@@ -22,6 +19,12 @@ class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     # pass
 
+class PageAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'status', 'created_on', 'updated_on')
+    search_fields = ['title', 'status', 'content']
+    prepopulated_fields = { 'slug': ('title',)}
+
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(Tag,TagAdmin)
+admin.site.register(Page,PageAdmin)
