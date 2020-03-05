@@ -21,6 +21,12 @@ def blog_index(request):
     }
     return render(request, "index.html", context)
 
+def post_detail(request, slug):
+    post = Post.objects.get(slug=slug)
+    context = {
+        'post':post,
+    }
+    return render(request, "post_detail.html", context)
 
 # def blog_category(request, category):
 #     posts = Post.objects.get(
@@ -32,7 +38,7 @@ def blog_index(request):
 #     }
 #     return render(request, "category.html", context)
 
-def blog_category(request,slug):
+def category_post(request,slug):
     posts = Post.objects.filter( category_id__slug = slug )
     context = {
         # 'posts_category' : posts_category,
@@ -41,9 +47,10 @@ def blog_category(request,slug):
     }
     return render(request, "category.html", context)
 
-def post_detail(request, slug):
-    post = Post.objects.get(slug=slug)
+
+def tag_post(request, slug):
+    posts = Post.objects.filter( tag__slug = slug )
     context = {
-        'post':post,
+        'posts' : posts,
     }
-    return render(request, "post_detail.html", context)
+    return render(request, "tag.html", context)
