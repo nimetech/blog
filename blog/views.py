@@ -14,10 +14,19 @@ from blog.models import Post, Category, Tag, Page
 #     model = Post
 #     template_name = 'post_detail.html'
 
+# def dynamic_menu(request):
+#     pages = Page.objects.filter(status = 1)
+#     context = {
+#         'pages' : pages,
+#     }
+#     return render(request, "base.html", context)
+
 def blog_index(request):
     posts = Post.objects.filter(status = 1).order_by('-created_on')
+    # pages = Page.objects.filter(status = 1)
     context = {
         'posts': posts,
+        # 'pages': pages,
     }
     return render(request, "index.html", context)
 
