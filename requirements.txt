@@ -5,3 +5,5 @@ virtualenv
 mysqlclient
 pymysql
 cryptography
+djipsum
+faker
