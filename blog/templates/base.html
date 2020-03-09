@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <title>Linux-id.net | Be a Hero DevOps</title>
@@ -6,33 +7,17 @@
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'front/style.css' %}" type="text/css" />
+        <!-- <link rel="stylesheet" href="{{ STATIC_URL }}front/style.css" type="text/css" /> -->
+        <script src="https://kit.fontawesome.com/f24ae733e2.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
 
     <body>
-        <style>
-            body {
-                font-family: "Roboto", sans-serif;
-                font-size: 17px;
-                background-color: #fdfdfd;
-            }
-            .shadow {
-            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
-            }
-            .btn-danger {
-                color: #fff;
-                background-color: #f00000;
-                border-color: #dc281e;
-            }
-            .masthead {
-                background: #3398E1;
-                height: auto;
-                padding-bottom: 15px;
-                box-shadow: 0 16px 48px #E3E7EB;
-                padding-top: 10px;
-            }
-        </style>
-
-        <!-- Navigation -->
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'blog_index' %}">Linux-id.net</a>
@@ -45,12 +30,12 @@
                         <li class="nav-item text-black">
                             <a class="nav-link text-black font-weight-bold" href="{% url 'blog_index' %}">Home</a>
                         </li>
-                        <li class="nav-item text-black">
+                        <!-- <li class="nav-item text-black">
                             <a class="nav-link text-black font-weight-bold" href="#">About</a>
                         </li>
                         <li class="nav-item text-black">
                             <a class="nav-link text-black font-weight-bold" href="#">Policy</a>
-                        </li>
+                        </li> -->
                         {%for page in pages_menu %}
                             <li class="nav-item text-black">
                                 
@@ -58,58 +43,53 @@
                                 
                             </li>
                         {% endfor%}
+                        <!-- {%for cat in cat_menu %}
+                            <li class="nav-item text-black">
+                                
+                                <a class="nav-link text-black font-weight-bold" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
+                                
+                            </li>
+                        {% endfor%} -->
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- End Navigation -->
+        <!-- End of Navbar -->
 
-        <style>
-            body {
-                font-family: "Roboto", sans-serif;
-                font-size: 18px;
-                background-color: #fdfdfd;
-            }
-            
-            .head_text {
-                color: white;
-            }
-            
-            .card {
-                box-shadow: 0 16px 48px #E3E7EB;
-            }
-        </style>
-        
-        <header class="masthead">
+        <!-- Header -->
+        <header>
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
                     <div class=" col-md-8 col-md-10 mx-auto">
                         <div class="site-heading">
-                            <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to my awesome Blog </h3>
-                            <p class="text-light">We Love Django As much as you do..! &nbsp
+                            <h3 class=" site-heading my-4 mt-3 text-dark"> Welcome to my awesome Blog </h3>
+                            <p class="text-dark">We Love Django As much as you do..! &nbsp
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+        <!-- End of Header -->
+
+        <!-- Main Container -->
         <div class="container">
             <div class="row">
                 <!-- Blog Entries Column -->
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
-              
-            
-            
+                {% block content %}
+                <!-- Content Goes here -->
+                {% endblock content %}
             </div>
         </div>
+        <!-- End of Main Container -->
+
         <!-- Footer -->
         <footer class="py-3 bg-grey">
             <p class="m-0 text-dark text-center">
                 Copyright &copy; linux-id.net
             </p>
         </footer>
+        <!-- End of Footer -->
     </body>
 </html>
