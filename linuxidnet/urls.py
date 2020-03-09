@@ -18,10 +18,18 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
+admin.site.site_header = 'Linux-id Dashboard'
+admin.site.site_title = 'Linux-id Dashboard'
+admin.site.index_title = 'Linux-id Administration'
 
 urlpatterns = [
     path('', include('blog.urls')),
     # path('category/<slug:slug>/', include('blog.urls')),
-    path('admin/', admin.site.urls),
+    path('wp-admin/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += staticfiles_urlpatterns()
