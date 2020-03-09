@@ -26,6 +26,9 @@ class Category(models.Model):
             k = k.parent
         return ' > '.join(full_path[::-1])
         # return self.name
+    
+    def get_absolute_url(self):
+        return F"/category/{self.slug}/"
 
 class Tag(models.Model):
     name = models.CharField(max_length=150)
