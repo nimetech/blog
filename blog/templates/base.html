@@ -1,46 +1,62 @@
 <!DOCTYPE html>
-{% load static %}
+<!-- {% load static %} -->
 <html>
     <head>
         <title>Linux-id.net | Be a Hero DevOps</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="styelsheet">
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" /> -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'front/style.css' %}" type="text/css" />
+
         <!-- <link rel="stylesheet" href="{{ STATIC_URL }}front/style.css" type="text/css" /> -->
-        <script src="https://kit.fontawesome.com/f24ae733e2.js" crossorigin="anonymous"></script>
+        <script language="JavaScript" type="text/javascript" src="{% static 'front/js/style.js' %}"></script>
+        <!-- <script src="https://kit.fontawesome.com/f24ae733e2.js" crossorigin="anonymous"></script> -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     </head>
 
-    <body>
+    <body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'blog_index' %}">Linux-id.net</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="{% url 'blog_index' %}">Home</a>
+        <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+            <!-- <div class="container"> -->
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {% load svg%}
+                    <a class="navbar-brand page-scroll custom-svg " href="#page-top">
+                        <!-- <img src="{% static 'images/logo.svg' %}"> -->
+                        <!-- LinuxID -->
+                        {% svg 'logo-linuxid' %}
+                        <span class="title-hd">LinuxID</span>
+                    </a>
+                    
+                </div>
+    
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right hd-padding-right">
+                        <li class="hidden active">
+                            <a href="#page-top"></a>
                         </li>
-                        <!-- <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">About</a>
+                        <li class="">
+                            <a class="page-scroll" href="{% url 'blog_index' %}">Home</a>
                         </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Policy</a>
-                        </li> -->
                         {%for page in pages_menu %}
-                            <li class="nav-item text-black">
-                                
-                                <a class="nav-link text-black font-weight-bold" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
-                                
+                            <li class="">
+                                <a class="page-scroll" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
                             </li>
                         {% endfor%}
                         <!-- {%for cat in cat_menu %}
@@ -50,14 +66,17 @@
                                 
                             </li>
                         {% endfor%} -->
+                        </li>
                     </ul>
                 </div>
-            </div>
+                <!-- /.navbar-collapse -->
+            <!-- </div> -->
+            <!-- /.container-fluid -->
         </nav>
         <!-- End of Navbar -->
 
         <!-- Header -->
-        <header>
+        <!-- <header>
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
@@ -70,10 +89,11 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </header> -->
         <!-- End of Header -->
 
         <!-- Main Container -->
+        <section>
         <div class="container">
             <div class="row">
                 <!-- Blog Entries Column -->
@@ -82,6 +102,7 @@
                 {% endblock content %}
             </div>
         </div>
+        </section>
         <!-- End of Main Container -->
 
         <!-- Footer -->
@@ -89,6 +110,13 @@
             <p class="m-0 text-dark text-center">
                 Copyright &copy; linux-id.net
             </p>
+            <div>
+                <ul>
+                    <li>
+                        <a href="{% url 'blog_page' slug='about-us' %}"> About</a>
+                    </li>
+                </ul>
+            </div>
         </footer>
         <!-- End of Footer -->
     </body>
