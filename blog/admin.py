@@ -3,12 +3,17 @@ from django.contrib import admin
 # Register your models here.
 from blog.models import Post, Category, Tag, Page
 
+def published(modeladmin, request, queryset):
+    queryset.update(status=1)
+published.short_shortdescription = "Publish"
+
 class PostAdmin(admin.ModelAdmin):
     # field = ['tag']
     list_display = ('title', 'slug', 'status', 'created_on', 'updated_on', 'author', 'category', 'tags')
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
+    actions = [published]
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'parent')
