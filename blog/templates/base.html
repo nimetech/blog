@@ -6,14 +6,10 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="styelsheet">
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" /> -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'front/style.css' %}" type="text/css" />
 
-        <!-- <link rel="stylesheet" href="{{ STATIC_URL }}front/style.css" type="text/css" /> -->
         <script language="JavaScript" type="text/javascript" src="{% static 'front/js/style.js' %}"></script>
         <!-- <script src="https://kit.fontawesome.com/f24ae733e2.js" crossorigin="anonymous"></script> -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -26,7 +22,6 @@
     <body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4">
         <!-- Navbar -->
         <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
-            <!-- <div class="container"> -->
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -36,11 +31,11 @@
                         <span class="icon-bar"></span>
                     </button>
                     {% load svg%}
-                    <a class="navbar-brand page-scroll custom-svg " href="#page-top">
-                        <!-- <img src="{% static 'images/logo.svg' %}"> -->
+                    <a class="navbar-brand page-scroll custom-svg " href="{% url 'blog_index' %}">
                         <!-- LinuxID -->
-                        {% svg 'logo-linuxid' %}
+                        <object type="image/svg+xml" data="{% static 'images/logo-linuxid.svg' %}" class="logo"></object>
                         <span class="title-hd">LinuxID</span>
+
                     </a>
                     
                 </div>
@@ -70,39 +65,26 @@
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
-            <!-- </div> -->
             <!-- /.container-fluid -->
         </nav>
         <!-- End of Navbar -->
 
-        <!-- Header -->
-        <!-- <header>
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class=" col-md-8 col-md-10 mx-auto">
-                        <div class="site-heading">
-                            <h3 class=" site-heading my-4 mt-3 text-dark"> Welcome to my awesome Blog </h3>
-                            <p class="text-dark">We Love Django As much as you do..! &nbsp
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header> -->
-        <!-- End of Header -->
-
         <!-- Main Container -->
-        <section>
-        <div class="container">
-            <div class="row">
+        <!-- <div class="container">
+            <div class="row"> -->
+              
+            <section class="main-container">
+                <div class="container">
                 <!-- Blog Entries Column -->
                 {% block content %}
                 <!-- Content Goes here -->
                 {% endblock content %}
-            </div>
-        </div>
-        </section>
+
+                </div>
+            </section>  
+            
+                <!-- </div>
+        </div> -->
         <!-- End of Main Container -->
 
         <!-- Footer -->

@@ -7,3 +7,7 @@ def pages_menu(context):
 def category_menu(context):
     cat_menu = Category.objects.all()
     return {'cat_menu': cat_menu}
+
+def tag_list(context):
+    tag_list = Tag.objects.all()
+    return{'tag_list' : tag_list}

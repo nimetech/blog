@@ -4,6 +4,8 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+ @import url(//db.onlinewebfonts.com/c/736cf5b08b01082a3645e14038868e20?family=Krungthep);
+
  body {
     overflow-x: hidden;
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -195,6 +197,29 @@
     color: #9A9A9A;
   }
   
+  .navbar-brand {
+    padding: 0;
+  }
+
+  .custom-svg{
+      height: 60px;
+      margin-top: -15px;
+      padding-left: 65px;
+  }
+
+  .logo{
+    height: 70px;
+    width: 50px;
+    margin-top: 5px;
+  }
+
+  .title-hd{
+      font-family: 'Krungthep', sans-serif;
+      margin-top: 30px;
+      position: fixed;
+      font-size: 1.3em;
+  }
+
   .navbar-default .navbar-nav > .active > a {
     border-radius: 0;
     color: #fff;
@@ -216,7 +241,7 @@
       -moz-transition: padding 0.3s;
       transition: padding 0.3s;
     }
-  
+
     .navbar-default .navbar-brand {
       font-size: 2em;
       -webkit-transition: all 0.3s;
@@ -240,66 +265,14 @@
     }
   }
   
-  /* header {
-    text-align: center;
-    color: #fff;
-    background-attachment: scroll;
-    background-image: url(https://unsplash.imgix.net/uploads%2F14115408840644deb16b0%2F2dc933e3?q=75&fm=jpg&auto=format&s=7f43646e4d26049c6c39890afb2e5ced);
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  /* .container {
+    margin-top: 60px;
   } */
-  
-  /* header .intro-text {
-    padding-top: 100px;
-    padding-bottom: 50px;
-  } */
-  
-  /* header .intro-text .intro-lead-in {
-    margin-bottom: 25px;
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 22px;
-    font-style: italic;
-    line-height: 22px;
-  } */
-  
-  /* header .intro-text .intro-heading {
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 50px;
-    font-weight: 700;
-    line-height: 50px;
-  } */
-  
-  /* @media (min-width: 768px) {
-    header .intro-text {
-      padding-top: 300px;
-      padding-bottom: 200px;
-    }
-  
-    header .intro-text .intro-lead-in {
-      margin-bottom: 25px;
-      font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 40px;
-      font-style: italic;
-      line-height: 40px;
-    }
-  
-    header .intro-text .intro-heading {
-      margin-bottom: 50px;
-      text-transform: uppercase;
-      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 75px;
-      font-weight: 700;
-      line-height: 75px;
-    }
-  } */
-  
-  
+  .main-container{
+    padding-top: 20px;
+    margin-top: 70px;
+  }
+
   footer {
     padding: 25px 0;
     text-align: center;

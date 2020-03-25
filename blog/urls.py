@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^posts/(?P<slug>[-\w]+)/$', views.post_detail, name='post_detail'),
     path('category/<slug:slug>/', views.category_post, name='category_post'),
     path('tag/<slug:slug>/', views.tag_post, name='tag_post'),
+    # url(r'^tag/(?P<slug>[-\w]+)/$', views.tag_post, name='tag_post'),
     # path('<slug:slug>/', views.blog_page, name='blog_page'),
     url(r'^page/(?P<slug>[-\w]+)/$', views.blog_page, name='blog_page'),
     # url(r'^page/(?P<slug>[-\w]+)/$', views.blog_page, name='blog_page'),

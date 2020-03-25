@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="263mm"
-   height="118mm"
-   viewBox="0 0 263 118"
+   width="20mm"
+   height="21mm"
+   viewBox="0 0 20 21"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   sodipodi:docname="logo.svg">
+   sodipodi:docname="logo-linuxid.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.64"
-     inkscape:cx="377.67225"
+     inkscape:cx="72.98475"
      inkscape:cy="252.95754"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -54,17 +54,18 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-179)">
+     transform="translate(0,-276)">
     <g
-       id="g1108"
-       transform="translate(91.363932,96.738282)">
+       id="g918"
+       transform="translate(-1.5875,1.5875)">
       <circle
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:3.54155636;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.50197566;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle893"
-         cx="-33.397587"
-         cy="140.41891"
-         r="50.772221" />
+         cx="11.812389"
+         cy="284.49323"
+         r="7.1963897" />
       <g
+         transform="matrix(0.14173872,0,0,0.14173872,16.546121,264.59043)"
          id="g1017">
         <circle
            style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3.24835372;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -74,7 +75,7 @@
            r="46.568821" />
       </g>
       <g
-         transform="translate(-100.73453,-24.053836)"
+         transform="matrix(0.14173872,0,0,0.14173872,2.2681377,261.18107)"
          id="g924">
         <g
            id="g905"
@@ -160,7 +161,7 @@
            style="fill:none;stroke:#000000;stroke-width:1.46500003;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       </g>
       <g
-         transform="translate(14.400551,-46.48251)"
+         transform="matrix(0.14173872,0,0,0.14173872,18.587237,258.00206)"
          id="g943">
         <rect
            ry="2.5687397"
@@ -189,17 +190,6 @@
            y="-166.2381"
            ry="2.5687397" />
       </g>
-      <text
-         id="text974"
-         y="151.8622"
-         x="21.248516"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.20730591px;line-height:1.25;font-family:Krungthep;-inkscape-font-specification:Krungthep;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.90518266"
-         xml:space="preserve"><tspan
-           style="stroke-width:0.90518266"
-           y="151.8622"
-           x="21.248516"
-           id="tspan972"
-           sodipodi:role="line">LinuxID</tspan></text>
     </g>
   </g>
 </svg>
