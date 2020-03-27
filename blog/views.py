@@ -4,11 +4,21 @@ from blog.models import Post, Category, Tag, Page
 
 
 def blog_index(request):
-    posts = Post.objects.filter(status = 1).order_by('-created_on')
     # pages = Page.objects.filter(status = 1)
+    latest = Post.objects.filter(status = 1).latest('created_on')
+    # posts = Post.objects.filter(status = 1).order_by('-created_on')
+    # exclude = Post.objects.filter(status = 1).exclude(latest).order_by('-created_on')
+    exclude = Post.objects.filter(status = 1).order_by('-created_on')[4:]
+    # if posts in latest:
+    top_three = Post.objects.filter(status = 1).order_by('-created_on')[1:4]
+
+
     context = {
-        'posts': posts,
+        # 'posts': posts,
         # 'pages': pages,
+        'latest' : latest,
+        'exclude' : exclude,
+        'top_three' : top_three,
     }
     return render(request, "index.html", context)
 
