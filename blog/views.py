@@ -1,24 +1,32 @@
 from django.shortcuts import render
 # from django.views import generic
 from blog.models import Post, Category, Tag, Page
+from  django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def blog_index(request):
     # pages = Page.objects.filter(status = 1)
     latest = Post.objects.filter(status = 1).latest('created_on')
-    # posts = Post.objects.filter(status = 1).order_by('-created_on')
-    # exclude = Post.objects.filter(status = 1).exclude(latest).order_by('-created_on')
-    exclude = Post.objects.filter(status = 1).order_by('-created_on')[4:]
-    # if posts in latest:
     top_three = Post.objects.filter(status = 1).order_by('-created_on')[1:4]
-
+    exclude = Post.objects.filter(status = 1).order_by('-created_on')[4:]
+    posts = Post.objects.filter(status = 1).order_by('-created_on')
+    paginator = Paginator(exclude, 10) # Post per view set to 10 
+    page = request.GET.get('page')
+    try: 
+        posts_view = paginator.page(page)
+        
+    except PageNotAnInteger:
+        posts_view = paginator.page(1)
+    except EmptyPage:
+        posts_view = paginator.page(paginator.num_pages)
 
     context = {
-        # 'posts': posts,
+        'posts': posts,
         # 'pages': pages,
         'latest' : latest,
         'exclude' : exclude,
         'top_three' : top_three,
+        'posts_view' : posts_view,
     }
     return render(request, "index.html", context)
 
