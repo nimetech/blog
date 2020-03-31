@@ -1,0 +1,49 @@
+{% block header %}
+<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      {% load svg%}
+      {% load static %}
+      <a class="navbar-brand page-scroll custom-svg " href="{% url 'blog_index' %}">
+          <!-- LinuxID -->
+          <object type="image/svg+xml" data="{% static 'images/logo-linuxid.svg' %}" class="logo"></object>
+          <span class="title-hd">LinuxID</span>
+
+      </a>
+      
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right hd-padding-right">
+          <li class="hidden active">
+              <a href="#page-top"></a>
+          </li>
+          <li class="">
+              <a class="page-scroll" href="{% url 'blog_index' %}">Home</a>
+          </li>
+          {%for page in pages_menu %}
+              <li class="">
+                  <a class="page-scroll" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+              </li>
+          {% endfor%}
+          <!-- {%for cat in cat_menu %}
+              <li class="nav-item text-black">
+                  
+                  <a class="nav-link text-black font-weight-bold" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
+                  
+              </li>
+          {% endfor%} -->
+          </li>
+      </ul>
+  </div>
+  <!-- /.navbar-collapse -->
+<!-- /.container-fluid -->
+</nav>
+{% endblock header %}
