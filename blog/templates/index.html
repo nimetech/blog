@@ -1,9 +1,12 @@
+
 {% extends "base.html" %} 
+
 {% block content %}
 
 {% if posts_view.has_next and posts_view.has_previous or posts_view.has_previous %}
         
 {% for post in posts_view%}
+<div>
 <section>
    <p><img src="{{ latest.featured_image.url }}"></p>
    <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
@@ -13,8 +16,9 @@
    <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
 </section>
 {% endfor%}
-
+</div>
 {% else %}
+<div>
 <section>
    <p><img src="{{ latest.featured_image.url }}"></p>
    <a href="{% url 'post_detail' latest.slug %}"><h2 class="">{{ latest.title }}</h2></a>
@@ -24,7 +28,9 @@
    <a href="{% url 'post_detail' latest.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
 </section>
 <hr>
-             
+</div>
+
+<div>
 {% for post in top_three%}
 <section>
    <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
@@ -35,7 +41,9 @@
 </section>
 {% endfor%}
 <hr>
+</div>
            
+<div>
 {% for post in posts_view%}
 <section>
    <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
@@ -45,6 +53,7 @@
    <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
 </section>
 {% endfor%}
+</div>
 {% endif %}
 
 

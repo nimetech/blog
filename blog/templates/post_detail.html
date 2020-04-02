@@ -1,6 +1,13 @@
 {% extends 'base.html' %} 
 {% block content %}
 
+{% block seo %}
+        
+<meta name="description" content="{{post.title}}">
+<meta name="keyword" content="{%for tag in tag_list %}{{tag.name}},{%endfor%}">
+
+{% endblock seo %}
+
 <!-- <div class="container"> -->
   <div class="row">
     <div class="col-md-8 mb-4  mt-3 left top">
