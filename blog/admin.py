@@ -8,7 +8,6 @@ def published(modeladmin, request, queryset):
 published.short_shortdescription = "Publish"
 
 class PostAdmin(admin.ModelAdmin):
-    # field = ['tag']
     list_display = ('title', 'slug', 'status', 'created_on', 'updated_on', 'author', 'category', 'tags')
     list_filter = ("status",)
     search_fields = ['title', 'content']
@@ -22,7 +21,6 @@ class CategoryAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}
-    # pass
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status', 'created_on', 'updated_on')

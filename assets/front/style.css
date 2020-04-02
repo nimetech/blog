@@ -53,12 +53,6 @@
     text-decoration: none;
   }
   
-  /* .border-bt{
-      border-bottom-width: 1px! important;
-      border-color: #222;
-  } */
-
-  
   .navbar-default {
     border-color: transparent;
     background-color: #F4F4F4;
@@ -120,7 +114,6 @@
       padding-left: 65px;
   }
   
-
   .logo{
     height: 70px;
     width: 50px;
@@ -135,7 +128,6 @@
       color: #222222;
   }
   
-
   .navbar-default .navbar-nav > .active > a {
     border-radius: 0;
     color: #9a9a9a;
@@ -181,9 +173,6 @@
     }
   }
   
-  /* .container {
-    margin-top: 60px;
-  } */
   .main-container{
     padding-top: 20px;
     margin-top: 70px;
@@ -236,12 +225,12 @@
   
   ::-moz-selection {
     text-shadow: none;
-    background: #9a9a9a;
+    background: #4ae4fd;
   }
   
   ::selection {
     text-shadow: none;
-    background: #9a9a9a;
+    background: #4ae4fd;
   }
   
   img::selection {
