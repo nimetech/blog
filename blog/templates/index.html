@@ -1,78 +1,110 @@
-
 {% extends "base.html" %} 
-
 {% block content %}
-
-{% if posts_view.has_next and posts_view.has_previous or posts_view.has_previous %}
-        
-{% for post in posts_view%}
-<div>
-<section>
-   <p><img src="{{ latest.featured_image.url }}"></p>
-   <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
-   <p class="card-text text-muted h6"><i class="far fa-clock"></i>{{ post.created_on |  date:"d F Y"  }}</p>
-   <p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p>
-   <p class="card-text">{{ post.content| slice:":200"| safe }}</p>
-   <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
-</section>
-{% endfor%}
+<div class="row">
+        {% if posts_view.has_next and posts_view.has_previous or posts_view.has_previous %}
+                <div class="row">
+                        <div class="col-md-8">
+                                {% for post in posts_view%}
+                                <div class="row separate-line post-pd">
+                                        <section class="padding-bt-post-list "></section>
+                                                <div class="col-md-4 post-image">
+                                                        <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                                <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
+                                                                <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
+                                                                <!-- <p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p> -->
+                                                                <p class="card-text">{{ post.content| slice:":200"| safe }}</p>
+                                                                <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
+                                                </div>
+                                                
+                                        </section>
+                                </div>
+                                {% endfor%}
+                                <div class="col-md-10 col-md-offset-1">
+                                        <ul class="pager">   
+                                                {% if posts_view.has_previous %}
+                                                        <li class="previous"><a href="?page={{ posts_view.previous_page_number }}">Previous</a></li>
+                                                {% else %}
+                                                        <li class="previous"><a title="End of Posts">Previous</a></li>
+                                                {% endif %}
+                                                {% if posts_view.has_next %}
+                                                        <li class="next"><a href="?page={{ posts_view.next_page_number }}">Next</a></li>
+                                                {% else %}
+                                                        <li class="next"><a title="End of Posts">Next</a></li>
+                                                {% endif %}
+                                        </ul>
+                                </div>
+                        </div>
+                        {% block sidebar_list %} 
+                                {% include 'sidebar.html' %}
+                        {% endblock sidebar_list %}
+                </div>
+        {% else %}        
+                <div class="col-md-6">
+                        <section>
+                                <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                                <h6><span class="card-text text-muted h6"><i class="far fa-clock"></i>{{ latest.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ latest.category }}</span></h6>
+                                <a href="{% url 'post_detail' latest.slug %}"><h2 class="h2-latest">{{ latest.title }}</h2></a>
+                        </section>
+                </div>
+                <div class="col-md-6">
+                        {% for post in top_three%}
+                        <div class="row padding-top-three">
+                                <div class="col-md-4">
+                                        <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                                </div>
+                                <div class="col-md-8">
+                                        <section class="separate-line">
+                                                <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
+                                                <p><a href="{% url 'post_detail' post.slug %}"><h2 class="h2-top-three">{{ post.title }}</h2></a></p>
+                                        </section>
+                                </div>
+                        </div>
+                        {% endfor%}
+                </div>   
+                <div class="clearfix"></div>
+                <div class="separate-line"></div>
+                
+                <div class="row">
+                        <div class="col-md-8">
+                                {% for post in posts_view%}
+                                <div class="row separate-line post-pd">
+                                        <section class="padding-bt-post-list "></section>
+                                                <div class="col-md-4 post-image">
+                                                        <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                                                </div>
+                                                <div class="col-md-8">
+                                                                <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
+                                                                <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
+                                                                <p class="card-text">{{ post.content| slice:":200"| safe }}</p>
+                                                                <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
+                                                </div>
+                                                
+                                        </section>
+                                </div>
+                        
+                                {% endfor%}
+                                <div class="col-md-10 col-md-offset-1">
+                                        <ul class="pager">   
+                                                {% if posts_view.has_previous %}
+                                                        <li class="previous"><a href="?page={{ posts_view.previous_page_number }}">Previous</a></li>
+                                                {% else %}
+                                                        <li class="previous"><a title="End of Posts">Previous</a></li>
+                                                {% endif %}
+                                                {% if posts_view.has_next %}
+                                                        <li class="next"><a href="?page={{ posts_view.next_page_number }}">Next</a></li>
+                                                {% else %}
+                                                        <li class="next"><a title="End of Posts">Next</a></li>
+                                                {% endif %}
+                                        </ul>
+                                </div>
+                        </div>
+                        {% block sidebar %} 
+                                {% include 'sidebar.html' %}
+                        {% endblock sidebar %}
+                </div>
+                                
+        {% endif %}  
 </div>
-{% else %}
-<div>
-<section>
-   <p><img src="{{ latest.featured_image.url }}"></p>
-   <a href="{% url 'post_detail' latest.slug %}"><h2 class="">{{ latest.title }}</h2></a>
-   <p class="card-text text-muted h6"><i class="far fa-clock"></i>{{ latest.created_on |  date:"d F Y"  }}</p>
-   <p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ latest.category }}</p>
-   <p class="card-text">{{ latest.content| slice:":200"| safe }}</p>
-   <a href="{% url 'post_detail' latest.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
-</section>
-<hr>
-</div>
-
-<div>
-{% for post in top_three%}
-<section>
-   <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
-   <p class="card-text text-muted h6"><i class="far fa-clock"></i>{{ post.created_on |  date:"d F Y"  }}</p>
-   <p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p>
-   <p class="card-text">{{ post.content| slice:":200"| safe }}</p>
-   <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
-</section>
-{% endfor%}
-<hr>
-</div>
-           
-<div>
-{% for post in posts_view%}
-<section>
-   <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
-   <p class="card-text text-muted h6"><i class="far fa-clock"></i>{{ post.created_on |  date:"d F Y"  }}</p>
-   <p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p>
-   <p class="card-text">{{ post.content| slice:":200"| safe }}</p>
-   <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
-</section>
-{% endfor%}
-</div>
-{% endif %}
-
-
-<div class="col-md-6">
-   <ul class="pager">   
-   {% if posts_view.has_previous %}
-        <li class="previous"><a href="?page={{ posts_view.previous_page_number }}">Previous</a></li>
-   {% else %}
-        <li class="previous"><a title="End of Posts">Previous</a></li>
-   {% endif %}
-   {% if posts_view.has_next %}
-        <li class="next"><a href="?page={{ posts_view.next_page_number }}">Next</a></li>
-        
-   {% else %}
-        <li class="next"><a title="End of Posts">Next</a></li>
-   {% endif %}
-   
-   </ul>
-
-</div>
-
 {%endblock%}

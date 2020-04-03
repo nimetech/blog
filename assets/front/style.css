@@ -245,3 +245,41 @@
     webkit-tap-highlight-color: #9a9a9a;
   }
   
+  .separate-line{
+    border-bottom: 1px solid #cbd5e0;
+  }
+
+  .h2-latest{
+    margin-top: 0px;
+  }
+
+  .h2-top-three{
+    margin-top: 0px;
+    font-size:20px;
+  }
+
+  .padding-top-three{
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+  }
+
+  .post-image{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .post-pd{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+  }
+
+  .padding-left-category{
+    padding-left:15px;
+  }
+
+  .padding-bt-post-list {
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
