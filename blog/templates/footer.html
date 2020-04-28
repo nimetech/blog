@@ -1,14 +1,43 @@
 {% block footer %}
-<footer class="py-3 bg-grey">
-    <p class="m-0 text-dark text-center">
-        Copyright &copy; linux-id.net
-    </p>
-    <div>
-        <ul>
-            <li>
-                <a href="{% url 'blog_page' slug='about-us' %}"> About</a>
-            </li>
-        </ul>
+<footer>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6 footer-margin-top">
+                <p class="footer-left">
+                    Copyright &copy;2020 | Design & Developed by <a href="{% url 'blog_index' %}">linux-id.net</a>
+                </p>
+            </div>
+            <div class="col-md-4 footer-margin-top">
+                        <ul>
+                            <li class="footer-right">
+                                <a href="{% url 'blog_page' slug='about-us' %}"> Sitemap</a>
+                            </li>
+                            <li class="footer-right">
+                                <a href="{% url 'blog_page' slug='about-us' %}"> Contact Us</a>                        
+                            </li>
+                            <li class="footer-right">
+                                <a href="{% url 'blog_page' slug='about-us' %}"> About</a>
+                            </li>
+                        </ul>
+            </div>
+            <div class="footer-right-social">
+                <ul>
+                    <li class="footer-right-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li class="footer-right-social">
+                        <a href="#"><i class="fab fa-facebook-square"></i></a>                        
+                    </li>
+                    <li class="footer-right-social">
+                        <a href=""><i class="fab fa-github-square"></i></a>
+                    </li>
+                    <li class="footer-right-social">
+                        <a href=""><i class="fab fa-stack-overflow"></i></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
 {% endblock footer %}

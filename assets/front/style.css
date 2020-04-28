@@ -165,7 +165,7 @@
       padding: 10px 0;
       background-color: #fff;
       border-bottom-width: 1px! important;
-      border-color: #9a9a9a;
+      border-color: #cbd5e0;
     }
   
     .navbar-default.navbar-shrink .navbar-brand {
@@ -178,24 +178,49 @@
     margin-top: 70px;
   }
 
+  .sidebar{
+    padding-top: 30px;
+  }
+
   footer {
-    padding: 25px 0;
-    text-align: center;
+    padding: 25px;
+    background-color: #292929;
+    color: #fff;
   }
-  
-  footer span.copyright {
-    text-transform: uppercase;
-    text-transform: none;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 40px;
+
+  .footer-margin-top{
+    margin-top:8px
   }
-  
-  footer ul.quicklinks {
-    margin-bottom: 0;
-    text-transform: uppercase;
-    text-transform: none;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 40px;
+
+  footer li{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+  }
+
+  .footer-left{
+    padding-left: 50px;
+  }
+
+  .footer-left a{
+    color: white;
+  }
+
+  .footer-right a{
+    float: right;
+    color: white;
+    padding: 0 5px;
+  }
+
+  .footer-right-social{
+    font-size: x-large;
+    margin-top: -15px;
+  }
+
+  .footer-right-social a{
+    float: left;
+    color: white;
+    padding: 0 5px;
   }
   
   ul.social-buttons {
@@ -230,7 +255,7 @@
   
   ::selection {
     text-shadow: none;
-    background: #4ae4fd;
+    background: #56c5d7;
   }
   
   img::selection {
@@ -256,11 +281,12 @@
   .h2-top-three{
     margin-top: 0px;
     font-size:20px;
+    padding-bottom: 15px;
   }
 
   .padding-top-three{
-    padding-bottom: 15px;
-    margin-bottom: 10px;
+    padding-bottom: 35px;
+    /* margin-bottom: 10px; */
   }
 
   .post-image{

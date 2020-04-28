@@ -28,11 +28,21 @@
           <li class="">
               <a class="page-scroll" href="{% url 'blog_index' %}">Home</a>
           </li>
-          {%for page in pages_menu %}
+          <li class="footer-right">
+              <a href="{% url 'blog_page' slug='about-us' %}"> Linux</a>
+          </li>
+          <li class="footer-right">
+              <a href="{% url 'blog_page' slug='about-us' %}"> Cloud</a>                        
+          </li>
+          <li class="footer-right">
+              <a href="{% url 'blog_page' slug='about-us' %}"> DevOps</a>
+          </li>
+          
+          <!-- {%for page in pages_menu %}
               <li class="">
                   <a class="page-scroll" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
               </li>
-          {% endfor%}
+          {% endfor%} -->
           <!-- {%for cat in cat_menu %}
               <li class="nav-item text-black">
                   
