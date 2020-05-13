@@ -29,16 +29,16 @@
               <a class="page-scroll" href="{% url 'blog_index' %}">Home</a>
           </li>
           <li class="footer-right">
-              <a href="{% url 'blog_page' slug='about-us' %}"> CentOS</a>
+              <a href="{% url 'category_post' slug='centos' %}"> CentOS</a>
           </li>
           <li class="footer-right">
-              <a href="{% url 'blog_page' slug='about-us' %}"> Ubuntu</a>                        
+              <a href="{% url 'category_post' slug='ubuntu' %}"> Ubuntu</a>                        
           </li>
           <li class="footer-right">
-              <a href="{% url 'blog_page' slug='about-us' %}"> Code</a>
+              <a href="{% url 'category_post' slug='code' %}"> Code</a>
           </li>
           <li class="footer-right">
-              <a href="{% url 'blog_page' slug='about-us' %}"> DevOps</a>
+              <a href="{% url 'category_post' slug='devops' %}"> DevOps</a>
           </li>
           
           <!-- {%for page in pages_menu %}

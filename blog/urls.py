@@ -1,6 +1,14 @@
 from django.urls import path
 from django.conf.urls import url
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import PostSitemap
 from blog import views 
+# from .sitemaps import PostSitemap
+
+sitemaps = {
+    'posts': PostSitemap,
+}
+
 
 urlpatterns = [
     path('', views.blog_index, name='blog_index'),
@@ -13,4 +21,5 @@ urlpatterns = [
     # path('<slug:slug>/', views.blog_page, name='blog_page'),
     url(r'^page/(?P<slug>[-\w]+)/$', views.blog_page, name='blog_page'),
     # url(r'^page/(?P<slug>[-\w]+)/$', views.blog_page, name='blog_page'),
+    url(r'^sitemap\.xml/$', sitemap, {'sitemaps' : sitemaps } , name='sitemap'),
 ]

@@ -30,6 +30,15 @@
     border-radius: 5px!important ;
   }
 
+  .tags ul {
+    list-style: none;
+    padding: 0px;
+  }
+
+  .tags ul li a {
+    color: #fff;
+  }
+
   .tags-top {
     margin-top: 5px;
   }
@@ -267,10 +276,6 @@
     background: 0 0;
   }
   
-  body {
-    webkit-tap-highlight-color: #9a9a9a;
-  }
-  
   .separate-line{
     border-bottom: 1px solid #cbd5e0;
   }
@@ -314,4 +319,22 @@
   .content-block{
     height: 100vh;
     display: block;
+  }
+
+  .sidebar-padding{
+    padding-left: 35px;
+  }
+
+  .sidebar-recent-post{
+    /* margin-left: -20px; */
+    text-decoration: none;
+    text-align: justify;
+  }
+
+  .sidebar-recent-post ul {
+    padding-left: 15px;
+  }
+
+  .sidebar-header{
+    margin-top: 35px;
   }

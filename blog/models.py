@@ -62,6 +62,10 @@ class Post(models.Model):
 
     def tags(self):
         return "\n".join([t.name for t in self.tag.all()])
+    
+    def get_absolute_url(self):
+        return F"/posts/{self.slug}/"
+    
 
 class Page(models.Model):
     title = models.CharField(max_length=200, unique=True)

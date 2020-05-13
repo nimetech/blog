@@ -8,7 +8,7 @@
                                 <div class="row separate-line post-pd">
                                         <section class="padding-bt-post-list "></section>
                                                 <div class="col-md-4 post-image">
-                                                        <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                                                        <img src="{{ post.featured_image.url }}" class="img-responsive" alt="{{ post.title }}">
                                                 </div>
                                                 <div class="col-md-8 ">
                                                                 <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
@@ -41,6 +41,7 @@
                         {% endblock sidebar_list %}
                 </div>
         {% else %}        
+                <!-- Section New Post -->
                 <div class="col-md-6">
                         <section>
                                 <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
@@ -48,11 +49,13 @@
                                 <a href="{% url 'post_detail' latest.slug %}"><h2 class="h2-latest">{{ latest.title }}</h2></a>
                         </section>
                 </div>
+                <!-- End Section New Post -->
+                <!-- Section of top three -->
                 <div class="col-md-6">
                         {% for post in top_three%}
                         <div class="row padding-top-three">
                                 <div class="col-md-4">
-                                        <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                                        <img src="{{ post.featured_image.url }}" class="img-responsive" alt="{{ post.title }}">
                                 </div>
                                 <div class="col-md-8">
                                         <section>
@@ -62,7 +65,8 @@
                                 </div>
                         </div>
                         {% endfor%}
-                </div>   
+                </div>
+                <!-- End Section of top three -->   
                 <div class="clearfix"></div>
                 <div class="separate-line"></div>
                 
@@ -72,7 +76,7 @@
                                 <div class="row separate-line post-pd">
                                         <section class="padding-bt-post-list "></section>
                                                 <div class="col-md-4 post-image">
-                                                        <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                                                        <img src="{{ post.featured_image.url }}" class="img-responsive" alt="{{ post.title }}">
                                                 </div>
                                                 <div class="col-md-8">
                                                                 <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>

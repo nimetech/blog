@@ -6,7 +6,7 @@
     <div class="row separate-line post-pd">
         <section class="padding-bt-post-list "></section>
                 <div class="col-md-4 post-image">
-                        <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                        <img src="{{ post.featured_image.url }}" class="img-responsive" alt="{{ post.title }}">
                 </div>
                 <div class="col-md-8 ">
                                 <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
