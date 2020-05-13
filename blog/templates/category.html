@@ -2,16 +2,39 @@
 
 {% block content %}
 <div class="col-md-8 mt-3 left">
-    {% for post in posts %}
-    <div class="card mb-4">
-        <div class="card-body">
-            <h2 class="card-title">{{ post.title }}</h2>
-            <p class="card-text text-muted h6">author : {{ post.author }} | posted : {{ post.created_on}} | category : {{ post.category }}</p>
-            <p class="card-text">{{post.content|slice:":100"|safe }}</p>
-            <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
-        </div>
+    {% for post in posts_view %}
+    <div class="row separate-line post-pd">
+        <section class="padding-bt-post-list "></section>
+                <div class="col-md-4 post-image">
+                        <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
+                </div>
+                <div class="col-md-8 ">
+                                <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
+                                <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
+                                <!-- <p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p> -->
+                                <p class="card-text">{{ post.content| slice:":200"| safe }}</p>
+                                <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
+                </div>
+                
+        </section>
     </div>
     {% endfor %}
+
+    <div class="col-md-10 col-md-offset-1">
+        <ul class="pager">   
+                {% if posts_view.has_previous %}
+                        <li class="previous"><a href="?page={{ posts_view.previous_page_number }}"><i class="fas fa-angle-double-left"></i> Previous</a></li>
+                {% else %}
+                        <li class="previous"><a title="End of Posts"><i class="fas fa-angle-double-left"></i> Previous</a></li>
+                {% endif %}
+                {% if posts_view.has_next %}
+                        <li class="next"><a href="?page={{ posts_view.next_page_number }}">Next <i class="fas fa-angle-double-right"></i></a></li>
+                {% else %}
+                        <li class="next"><a title="End of Posts">Next <i class="fas fa-angle-double-right"></i></a></li>
+                {% endif %}
+        </ul>
+    </div>
+
 </div>
 {% block sidebar %} 
     {% include 'sidebar.html' %}

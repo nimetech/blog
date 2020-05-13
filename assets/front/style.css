@@ -9,6 +9,7 @@
  body {
     overflow-x: hidden;
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 100%;
   }
 
   .hd-padding {
@@ -308,4 +309,9 @@
     padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  .content-block{
+    height: 100vh;
+    display: block;
   }

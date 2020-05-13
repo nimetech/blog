@@ -39,9 +39,21 @@ def post_detail(request, slug):
 
 def category_post(request,slug):
     posts = Post.objects.filter( category_id__slug = slug, status = 1 )
+    
+    paginator = Paginator(posts, 10) # Post per view set to 10 
+    page = request.GET.get('page')
+    try: 
+        posts_view = paginator.page(page)
+        
+    except PageNotAnInteger:
+        posts_view = paginator.page(1)
+    except EmptyPage:
+        posts_view = paginator.page(paginator.num_pages)
+    
     context = {
         # 'posts_category' : posts_category,
         'posts' : posts,
+        'posts_view' : posts_view,
         # 'posts_category' : posts,
     }
     return render(request, "category.html", context)
@@ -49,8 +61,20 @@ def category_post(request,slug):
 
 def tag_post(request, slug):
     posts = Post.objects.filter( tag__slug = slug, status = 1 )
+
+    paginator = Paginator(posts, 10) # Post per view set to 10 
+    page = request.GET.get('page')
+    try: 
+        posts_view = paginator.page(page)
+        
+    except PageNotAnInteger:
+        posts_view = paginator.page(1)
+    except EmptyPage:
+        posts_view = paginator.page(paginator.num_pages)
+
     context = {
         'posts' : posts,
+        'posts_view' : posts_view,
     }
     return render(request, "tag.html", context)
 

@@ -8,19 +8,22 @@
 
 {% endblock seo %}
 
-<!-- <div class="container"> -->
-  <div class="row">
+  <div class="row content-block">
     <div class="col-md-8 mb-4  mt-3 left top">
-      <div class="">
+      <div>
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on | date:"d F Y" }}</p>
-        <p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p>
-        <p class="card-text ">{{ post.content|safe }}</p>
+        <a href="{{ post.category.get_absolute_url }}"><p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p></a>
+        {{ post.content|safe }}
         
-        <div>
+        <div class="tags tags-top">
+          <ul>
             {% for tag in tag_list %}
-            <a href="{{ tag.get_absolute_url }}" class="tags tags-top">#{{ tag.name }}</a>
+              <li>
+                <a href="{{ tag.get_absolute_url }}">#{{ tag.name }}</a>
+              </li>
             {%endfor%}
+          </ul>
         </div>
         
       </div>
@@ -29,6 +32,5 @@
         {% include 'sidebar.html' %} 
     {% endblock sidebar %}
   </div>
-<!-- </div> -->
 
 {% endblock content %}
