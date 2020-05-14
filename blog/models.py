@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 
 # Create your models here.
 from django.contrib.auth.models import User
@@ -65,7 +66,6 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return F"/posts/{self.slug}/"
-    
 
 class Page(models.Model):
     title = models.CharField(max_length=200, unique=True)

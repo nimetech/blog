@@ -5,7 +5,11 @@
  */
 
  @import url(//db.onlinewebfonts.com/c/736cf5b08b01082a3645e14038868e20?family=Krungthep);
-
+ @import url(//db.onlinewebfonts.com/c/eaa125e09d689e99e9567f111edc60be?family=DTLProkyonST);
+ .powered{
+   font-family: 'DTLProkyonST';
+   font-weight: bold;
+ }
  body {
     overflow-x: hidden;
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -21,10 +25,10 @@
     padding-right: 7.5em! important;
   }
 
-  .tags {
+  /* .tags {
     padding: 1em;
-    background-color: #007ac1 ;
-    border-color: #007ac1 ;
+    background-color: #63b7af ;
+    border-color: #63b7af ;
     color: white;
     margin: 5px;
     border-radius: 5px!important ;
@@ -37,10 +41,48 @@
 
   .tags ul li a {
     color: #fff;
+  } */
+
+
+  .tags {
+    list-style: none;
+    margin: 0;
+    overflow: hidden; 
+    padding: 0;
+    display: inline;
+  }
+  
+  .tags li {
+    float: left; 
+  }
+  
+  .tag {
+    background: #00bcd4;
+    color: white;
+    display: inline-block;
+    height: 40px;
+    line-height: 24px;
+    padding: 8px 20px 0 20px;
+    position: relative;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    border-radius: 5px!important;
+  }
+
+  .tag a{
+    color: white;
+  }
+
+  .tag a:hover{
+    color: white;
+  }
+  
+  .tag:hover {
+    background-color: #82c4c3;
   }
 
   .tags-top {
-    margin-top: 5px;
+    margin-top: 35px;
   }
 
   a,
@@ -216,7 +258,7 @@
     color: white;
   }
 
-  .footer-right a{
+  .right-menu a{
     float: right;
     color: white;
     padding: 0 5px;
@@ -317,12 +359,16 @@
   }
 
   .content-block{
-    height: 100vh;
     display: block;
+  }
+
+  .page-block{
+    height: 100vh;
   }
 
   .sidebar-padding{
     padding-left: 35px;
+    padding-bottom: 75px;
   }
 
   .sidebar-recent-post{
@@ -337,4 +383,92 @@
 
   .sidebar-header{
     margin-top: 35px;
+  }
+
+  .card-header{
+    background-color: #00bcd4;
+    height: 35px;
+    padding: 8px 20px 0 20px;
+    color: white;
+  }
+
+  .content-custom{
+    padding-top: 25px;
+  }
+
+  .card-pd{
+    padding-bottom: 15px;
+  }
+
+  .content-custom > p {
+    font-size: 16px;
+  }
+
+  .justify{
+    text-align: justify;
+  }
+  /* CSS for code */
+  code,
+  pre {
+    color: white;
+    text-align: left;
+    text-shadow: 0 -.1em .2em black;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    display: block;
+    white-space: pre-wrap;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  pre,
+  :not(pre) > code {
+    background: hsl(0, 0%, 8%); /* #141414 */
+  }
+
+  /* Code blocks */
+  pre {
+    margin: .5em 0;
+    overflow: auto;
+    padding: 1em;
+  }
+
+  pre::-moz-selection {
+    /* Firefox */
+    background: hsl(200, 4%, 16%); /* #282A2B */
+  }
+
+  pre::selection {
+    /* Safari */
+    background: hsl(200, 4%, 16%); /* #282A2B */
+  }
+
+  /* Text Selection colour */
+  pre::-moz-selection, pre ::-moz-selection,
+  code::-moz-selection, code ::-moz-selection {
+    text-shadow: none;
+    background: hsla(0, 0%, 93%, 0.15); /* #EDEDED */
+  }
+
+  pre::selection, pre ::selection,
+  code::selection, code ::selection {
+    text-shadow: none;
+    background: hsla(0, 0%, 93%, 0.15); /* #EDEDED */
+  }
+
+  /* Inline code */
+  :not(pre) > code {
+    padding: 1em 2em ;
+    white-space: nowrap;
   }

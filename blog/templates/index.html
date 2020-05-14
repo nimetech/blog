@@ -45,7 +45,7 @@
                 <div class="col-md-6">
                         <section>
                                 <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
-                                <h6><span class="card-text text-muted h6"><i class="far fa-clock"></i>{{ latest.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ latest.category }}</span></h6>
+                                <h6><span class="card-text text-muted h6"><i class="far fa-clock"></i> {{ latest.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ latest.category }}</span></h6>
                                 <a href="{% url 'post_detail' latest.slug %}"><h2 class="h2-latest">{{ latest.title }}</h2></a>
                         </section>
                 </div>
@@ -81,7 +81,7 @@
                                                 <div class="col-md-8">
                                                                 <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
                                                                 <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
-                                                                <p class="card-text">{{ post.content| slice:":200"| safe }}</p>
+                                                                <p class="justify">{{ post.content| slice:":200"| safe }}</p>
                                                                 <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
                                                 </div>
                                                 

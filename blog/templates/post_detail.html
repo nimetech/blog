@@ -4,22 +4,29 @@
 {% block seo %}
         
 <meta name="description" content="{{post.title}}">
-<meta name="keyword" content="{%for tag in tag_list %}{{tag.name}},{%endfor%}">
+<meta name="keyword" content="{% for tag in post.tag.all %}{{tag.name}},{%endfor%}">
 
 {% endblock seo %}
 
-  <div class="row content-block">
-    <div class="col-md-8 mb-4  mt-3 left top">
+  <div class="row">
+    <div class="col-md-8 content-block">
       <div>
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-        <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on | date:"d F Y" }}</p>
-        <a href="{{ post.category.get_absolute_url }}"><p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p></a>
-        {{ post.content|safe }}
+        <p class="card-pd h6"><i class="far fa-clock"></i> {{ post.created_on | date:"d F Y" }} | Category : <a href="{{ post.category.get_absolute_url }}"><i class="fas fa-paperclip"></i> {{ post.category }}</a></p>
         
-        <div class="tags tags-top">
-          <ul>
+        <div>
+          <img src="{{ post.featured_image.url }}" class="img-responsive" alt="{{ post.title }}">
+        </div>
+
+        <div class="content-custom">
+          {{ post.content|safe }}
+        </div>
+          
+        
+        <div class="tags-top">
+          <ul class="tags">
             {%for tag in post.tag.all%}
-            <li>
+            <li class="tag">
                 <a href="{{ tag.get_absolute_url }}">#{{ tag.name }}</a>
             </li>
             {%endfor%}
@@ -27,10 +34,11 @@
         </div>
         
       </div>
+      
     </div>
     {% block sidebar %} 
-        {% include 'sidebar.html' %} 
-    {% endblock sidebar %}
+          {% include 'sidebar.html' %} 
+      {% endblock sidebar %}
   </div>
 
 {% endblock content %}
