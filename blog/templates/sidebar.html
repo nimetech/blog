@@ -1,57 +1,49 @@
 {% block sidebar %}
+    <div class="col-md-4 sidebar-padding">
+        <div class="sidebar">
+            <h4 class="card-header">Recent Posts</h4>
+            <div class="sidebar-recent-post">
+                <ul>
+                    {% for post in recent_post %}
+                    <li>
+                        <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>        
 
-<!-- <style>
-    .card{
-        box-shadow: 0 16px 48px #E3E7EB;
-    } 
-</style> -->
-
-<!-- Sidebar Widgets Column -->
-<div class="col-md-4 sidebar-padding">
-    <div class="sidebar">
-        <h4 class="card-header">Recent Posts</h4>
-        <div class="sidebar-recent-post">
-            <ul>
-                {% for post in recent_post %}
-                <li>
-                    <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>        
-
-        <h4 class="card-header sidebar-header">Partner</h4>
-        <div>
-            <p style="font-weight:900; padding-top:20px;">
-                <a href="https://python.web.id" target="_blank">
-                    <img src="https://nimetech.com/wp-content/uploads/2020/03/medium-logo-orange.png" alt="Python.web.id">
-                    <span style="padding-left:10px;"></span>Python.web.id
+            <h4 class="card-header sidebar-header">Partner</h4>
+            <div>
+                <p style="font-weight:900; padding-top:20px;">
+                    <a href="https://python.web.id" target="_blank">
+                        <img src="https://nimetech.com/wp-content/uploads/2020/03/medium-logo-orange.png" alt="Python.web.id">
+                        <span style="padding-left:10px;"></span>Python.web.id
+                    </a>
+                </p>
+                <a href="https://nimetech.com" target="_blank">
+                    <img src="https://nimetech.com/wp-content/uploads/2019/03/cropped-g4865.png" alt="NimeTech.com" width="150">
                 </a>
-            </p>
-            <a href="https://nimetech.com" target="_blank">
-                <img src="https://nimetech.com/wp-content/uploads/2019/03/cropped-g4865.png" alt="NimeTech.com" width="150">
-            </a>
-        </div>
+            </div>
 
-        <h4 class="card-header sidebar-header">Domain & Hosting</h4>
-        <div>
-            <a href="https://www.domainesia.com/?aff=4581" target="_blank"><img src="https://goo.gl/wdBX8M" alt="DomaiNesia"></a>
-        </div>
+            <h4 class="card-header sidebar-header">Domain & Hosting</h4>
+            <div>
+                <a href="https://www.domainesia.com/?aff=4581" target="_blank"><img src="https://goo.gl/wdBX8M" alt="DomaiNesia"></a>
+            </div>
 
-        <h4 class="card-header sidebar-header">Cloud Provider</h4>
-        <div>
-            <a href="hhttps://m.do.co/c/9d6a87b40781" target="_blank">
-                <img src="https://nimetech.com/wp-content/uploads/2019/06/DO_Logo_Vertical_Blue.png" alt="DigitalOcean" width="250">
-            </a>
-            <a href="https://upcloud.com/signup/?promo=KA2HRG" target="_blank">
-                <img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/1061/upcloud_logo_horizontal.png" alt="UpCloud" width="250">
-            </a>
-            <a href="https://www.linode.com/?r=5538e956f8c034e9c89bee624c2f9c04f33d2a82" target="_blank">
-                <img src="https://pluspng.com/img-png/linode-png-eps-download-2049.png" alt="Linode" width="250">
-            </a>
-        </div>
+            <h4 class="card-header sidebar-header">Cloud Provider</h4>
+            <div>
+                <a href="hhttps://m.do.co/c/9d6a87b40781" target="_blank">
+                    <img src="https://nimetech.com/wp-content/uploads/2019/06/DO_Logo_Vertical_Blue.png" alt="DigitalOcean" width="250">
+                </a>
+                <a href="https://upcloud.com/signup/?promo=KA2HRG" target="_blank">
+                    <img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/1061/upcloud_logo_horizontal.png" alt="UpCloud" width="250">
+                </a>
+                <a href="https://www.linode.com/?r=5538e956f8c034e9c89bee624c2f9c04f33d2a82" target="_blank">
+                    <img src="https://pluspng.com/img-png/linode-png-eps-download-2049.png" alt="Linode" width="250">
+                </a>
+            </div>
 
+        </div>
     </div>
-</div>
 <!-- End Sidebar widgets column -->
 {% endblock sidebar %}
