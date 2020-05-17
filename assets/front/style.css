@@ -235,6 +235,7 @@
   }
 
   footer {
+    margin-top: 100px;
     padding: 25px;
     background-color: #292929;
     color: #fff;
@@ -471,4 +472,12 @@
   :not(pre) > code {
     padding: 1em 2em ;
     white-space: nowrap;
+  }
+
+  .more-posts{
+    margin-top: 25px;
+  }
+
+  .more-posts > h4 {
+    font-size: 22px;
   }
