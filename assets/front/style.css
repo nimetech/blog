@@ -57,7 +57,7 @@
   }
   
   .tag {
-    background: #00bcd4;
+    background: #00BC80;
     color: white;
     display: inline-block;
     height: 40px;
@@ -93,8 +93,9 @@
     outline: 0;
   }
   
-  a {
-    color: #222222;
+  section > a,
+  section > div > a   {
+    color: #222;
   }
   
   a:hover,
@@ -382,12 +383,20 @@
     padding-left: 15px;
   }
 
+  .sidebar-recent-post ul > li > a{
+    color: #222;
+  }
+
   .sidebar-header{
     margin-top: 35px;
   }
 
+  .sidebar > div > p > a{
+    color: #222;
+  }
+
   .card-header{
-    background-color: #00bcd4;
+    background-color: #00A8FF;
     height: 35px;
     padding: 8px 20px 0 20px;
     color: white;
@@ -481,4 +490,26 @@
 
   .more-posts > h4 {
     font-size: 22px;
+  }
+
+  div.col-xs-1 > div > a {
+    color: #035aa6;
+  }
+
+  @media (max-width: 992px) {
+    .col-md-4 > img {
+      width: 200px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .col-md-4 > img {
+      width: 190px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .col-md-4 > img {
+      width: 230px;
+    }
   }

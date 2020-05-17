@@ -5,7 +5,7 @@
       {% for post in similar %}
       <div class="col-md-4">
         
-        <img src={{post.featured_image.url}} width="230px" alt="{{post.title}}">
+        <img src={{post.featured_image.url}} alt="{{post.title}}">
         <p style="margin: 10px 0 0 0;"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}</p>
         <p>
           <b>{{post.title}}</b>
