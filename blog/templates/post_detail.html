@@ -54,8 +54,12 @@
         <div class="clearfix"></div>
       </div>
         {% block related_post %} 
-            {% include 'related_post.html' %} 
+          {% include 'related_post.html' %} 
         {% endblock related_post %}
+
+        {% block disqus %}
+          {% include 'disqus.html' %}
+        {% endblock disqus %}
       
     </div>
       {% block sidebar %} 
