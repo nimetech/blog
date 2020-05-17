@@ -1,4 +1,29 @@
 {% extends 'base.html' %} 
+
+{% block seo %}
+        
+<meta name="author" content="{{ page.author }}">
+<meta name="description" content="{{ page.content|safe|striptags|slice:'160' }}">
+<meta name="keyword" content="{{ page.title }}">
+
+<!-- meta OpenGraph Data -->
+<meta property="og:url" content="https://{{ request.get_host }}{{ page.get_absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.content|safe|striptags|slice:'160' }}">
+<!-- <meta property="og:image" content="https://{{ request.get_host }}{{ post.featured_image.url }}"> -->
+<meta property="og:site_name" content="{{ request.get_host }}"/>
+
+<!-- meta Twitter Card Data -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.content|safe|striptags|slice:'160' }}">
+<meta name="twitter:domain" content="{{ request.get_host }}">
+<meta name="twitter:creator" content="@buruh_serabutan">
+
+{% endblock seo %}
+
 {% block content %}
 
 <div class="container">
@@ -7,7 +32,12 @@
       <div class="card-body">
         <h1>{% block title %} {{ page.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ page.author }} | {{ page.created_on }}</p>
-        <p class="card-text ">{{ page.content | safe }}</p>
+
+        <div class="content-custom">
+          {{ page.content|safe }}
+        </div>
+        
+        <!-- <p class="card-text ">{{ page.content | safe }}</p> -->
       </div>
     </div>
     
