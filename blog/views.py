@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import random
 # from django.views import generic
 from blog.models import Post, Category, Tag, Page
 from  django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -35,9 +36,13 @@ def blog_index(request):
 def post_detail(request, slug):
     recent_post = Post.objects.filter(status = 1).order_by('-created_on')[0:5]
     post = Post.objects.get(slug=slug)
+    category = post.category
+    post_id = post.id
+    similar = Post.objects.filter(category = category, status = 1).exclude(id = post_id).order_by('?')[:3]
     context = {
         'post':post,
         'recent_post' : recent_post,
+        'similar' : similar,
     }
     return render(request, "post_detail.html", context)
 
