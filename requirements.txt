@@ -8,3 +8,4 @@ cryptography
 djipsum
 faker
 django-inline-svg
+django-social-share
