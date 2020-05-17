@@ -1,13 +1,32 @@
 {% extends 'base.html' %} 
-{% block content %}
-
 {% block seo %}
         
-<meta name="description" content="{{post.title}}">
-<meta name="keyword" content="{% for tag in post.tag.all %}{{tag.name}},{%endfor%}">
+<meta name="author" content="{{ post.author }}">
+<meta name="description" content="{{ post.content|safe|striptags|slice:'160' }}">
+<meta name="keyword" content="{{ post.title }}">
+{% for tag in post.tag.all %}
+<meta name="article:tag" content="{{ tag.name }}">
+{%endfor%}
+<!-- meta facebook share -->
+<meta property="og:url" content="https://{{ request.get_host }}{{ post.get_absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.content|safe|striptags|slice:'160' }}">
+<meta property="og:image" content="https://{{ request.get_host }}{{ post.featured_image.url }}">
+<meta property="og:site_name" content="{{ request.get_host }}"/>
+
+<!-- meta Twitter Card Data -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ post.title }}">
+<meta name="twitter:description" content="{{ post.content|safe|striptags|slice:'160' }}">
+<meta name="twitter:image" content="https://{{ request.get_host }}{{ post.featured_image.url }}">
+<meta name="twitter:domain" content="{{ request.get_host }}">
+<meta name="twitter:creator" content="@buruh_serabutan">
 
 {% endblock seo %}
 
+{% block content %}
   <div class="row">
     <div class="col-md-8 content-block">
       <div>
@@ -32,11 +51,14 @@
             {%endfor%}
           </ul>
         </div>
-        
+        <div class="clearfix"></div>
       </div>
+        {% block related_post %} 
+            {% include 'related_post.html' %} 
+        {% endblock related_post %}
       
     </div>
-    {% block sidebar %} 
+      {% block sidebar %} 
           {% include 'sidebar.html' %} 
       {% endblock sidebar %}
   </div>
