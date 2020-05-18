@@ -1,9 +1,16 @@
 from django.shortcuts import render
 import random
 # from django.views import generic
+from django.template import RequestContext
 from blog.models import Post, Category, Tag, Page
-from  django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+# from django.views.static import serve
 
+
+# def handler404(request, template_name="error/404.html"):
+#     response = render_to_response("error/404.html")
+#     response.status_code = 404
+#     return response
 
 def blog_index(request):
     # pages = Page.objects.filter(status = 1)
