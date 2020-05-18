@@ -79,7 +79,7 @@
                                                         <img src="{{ post.featured_image.url }}" class="img-responsive" alt="{{ post.title }}">
                                                 </div>
                                                 <div class="col-md-8">
-                                                                <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
+                                                                <a href="{% url 'post_detail' post.slug %}"><h2>{{ post.title }}</h2></a>
                                                                 <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
                                                                 <p class="justify">{{ post.content| slice:":200"| safe }}</p>
                                                                 <a href="{% url 'post_detail' post.slug  %}" class="">Read More <i class="fas fa-angle-double-right"></i></a>
