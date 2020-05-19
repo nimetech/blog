@@ -7,10 +7,26 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.views.static import serve
 
 
-# def handler404(request, template_name="error/404.html"):
-#     response = render_to_response("error/404.html")
-#     response.status_code = 404
-#     return response
+def forbidden_access(request, exception=None):
+    response = render(request,
+        'errors/404.html',{}
+    )
+    response.status_code = 403
+    return response
+
+def not_found(request, exception=None):
+    response = render(request,
+        'errors/404.html',{}
+    )
+    response.status_code = 404
+    return response
+
+def server_error(request,exception=None):
+    response = render(request,
+        'errors/500.html',{}
+    )
+    response.status_code = 500
+    return response
 
 def blog_index(request):
     # pages = Page.objects.filter(status = 1)

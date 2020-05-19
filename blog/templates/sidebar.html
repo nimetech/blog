@@ -1,3 +1,4 @@
+{% load static %}
 {% block sidebar %}
     <div class="col-md-4 sidebar-padding">
         <div class="sidebar">
@@ -16,12 +17,12 @@
             <div>
                 <p style="font-weight:900; padding-top:20px;">
                     <a href="https://python.web.id" target="_blank">
-                        <img src="https://nimetech.com/wp-content/uploads/2020/03/medium-logo-orange.png" alt="Python.web.id">
+                        <img src="{% static 'images/medium-logo-orange.png' %}" alt="Python.web.id">
                         <span style="padding-left:10px;"></span>Python.web.id
                     </a>
                 </p>
                 <a href="https://nimetech.com" target="_blank">
-                    <img src="https://nimetech.com/wp-content/uploads/2019/03/cropped-g4865.png" alt="NimeTech.com" width="150">
+                    <img src="{% static 'images/cropped-g4865.png' %}" alt="NimeTech.com" width="150">
                 </a>
             </div>
 
@@ -32,8 +33,8 @@
 
             <h4 class="card-header sidebar-header">Cloud Provider</h4>
             <div>
-                <a href="hhttps://m.do.co/c/9d6a87b40781" target="_blank">
-                    <img src="https://nimetech.com/wp-content/uploads/2019/06/DO_Logo_Vertical_Blue.png" alt="DigitalOcean" width="250">
+                <a href="https://m.do.co/c/9d6a87b40781" target="_blank">
+                    <img src="{% static 'images/DO_Logo_Vertical_Blue.png' %}" alt="DigitalOcean" width="250">
                 </a>
                 <a href="https://upcloud.com/signup/?promo=KA2HRG" target="_blank">
                     <img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/1061/upcloud_logo_horizontal.png" alt="UpCloud" width="250">
