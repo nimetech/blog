@@ -4,8 +4,30 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
- @import url(//db.onlinewebfonts.com/c/736cf5b08b01082a3645e14038868e20?family=Krungthep);
- @import url(//db.onlinewebfonts.com/c/eaa125e09d689e99e9567f111edc60be?family=DTLProkyonST);
+  /*@import url(//db.onlinewebfonts.com/c/736cf5b08b01082a3645e14038868e20?family=Krungthep);*/
+  @font-face {
+    font-family: "Krungthep"; 
+    src: url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.eot"); 
+    src: url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.eot?#iefix") format("embedded-opentype"), 
+         url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.woff2") format("woff2"), 
+         url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.woff") format("woff"), 
+         url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.ttf") format("truetype"), 
+         url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.svg#Krungthep") format("svg");   
+  }
+
+  /*@import url(//db.onlinewebfonts.com/c/eaa125e09d689e99e9567f111edc60be?family=DTLProkyonST);*/
+
+  @font-face {
+    font-family: "DTLProkyonST"; 
+    src: url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.eot"); 
+    src: url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.eot?#iefix") format("embedded-opentype"), 
+          url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.woff2") format("woff2"), 
+          url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.woff") format("woff"), 
+          url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.ttf") format("truetype"), 
+          url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.svg#DTLProkyonST") format("svg"); 
+  }
+
+
  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
  .powered{
