@@ -65,9 +65,9 @@
           <div class="col-xs-1" style="font-size:2.5em; width:auto; padding-left: 0;">
             {% post_to_twitter "Read this Post: {{post.title}}. Check it out!" object_or_url '<i class="fab fa-twitter-square"></i>' %}
           </div>
-          <div class="col-xs-1" style="font-size:2.5em; width:auto; padding-left: 0;">
-            {% post_to_linkedin post.title object_or_url '<i class="fab fa-linkedin"></i>' %}
-          </div>
+          <!-- <div class="col-xs-1" style="font-size:2.5em; width:auto; padding-left: 0;">
+            {% post_to_linkedin "{{post.title}}" object_or_url '<i class="fab fa-linkedin"></i>' %}
+          </div> -->
           <div class="col-xs-1" style="font-size:2.5em; width:auto; padding-left: 0;">
             {% post_to_telegram "Read this Post: {{post.title}}" object_or_url '<i class="fab fa-telegram"></i>'%}
           </div>
