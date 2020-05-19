@@ -4,8 +4,30 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
- @import url(//db.onlinewebfonts.com/c/736cf5b08b01082a3645e14038868e20?family=Krungthep);
- @import url(//db.onlinewebfonts.com/c/eaa125e09d689e99e9567f111edc60be?family=DTLProkyonST);
+  /*@import url(//db.onlinewebfonts.com/c/736cf5b08b01082a3645e14038868e20?family=Krungthep);*/
+  @font-face {
+    font-family: "Krungthep"; 
+    src: url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.eot"); 
+    src: url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.eot?#iefix") format("embedded-opentype"), 
+         url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.woff2") format("woff2"), 
+         url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.woff") format("woff"), 
+         url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.ttf") format("truetype"), 
+         url("//db.onlinewebfonts.com/t/736cf5b08b01082a3645e14038868e20.svg#Krungthep") format("svg");   
+  }
+
+  /*@import url(//db.onlinewebfonts.com/c/eaa125e09d689e99e9567f111edc60be?family=DTLProkyonST);*/
+
+  @font-face {
+    font-family: "DTLProkyonST"; 
+    src: url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.eot"); 
+    src: url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.eot?#iefix") format("embedded-opentype"), 
+          url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.woff2") format("woff2"), 
+          url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.woff") format("woff"), 
+          url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.ttf") format("truetype"), 
+          url("//db.onlinewebfonts.com/t/eaa125e09d689e99e9567f111edc60be.svg#DTLProkyonST") format("svg"); 
+  }
+
+
  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
  .powered{
@@ -260,26 +282,41 @@
   }
 
   .footer-left{
-    padding-left: 50px;
+    float: left;
+    padding-inline-start: 40px;
   }
+
+  .footer-left-menu {
+    color: white;
+    display: inline-block;
+    padding: 0 15px 0 0 ;
+    font-weight: 800;
+  }
+
+  .footer-left-menu > a{
+    color: white;
+
+  }
+
 
   .footer-left a{
     color: white;
   }
 
   .right-menu a{
-    float: right;
+    float: left;
     color: white;
     padding: 0 5px;
   }
 
   .footer-right-social{
     font-size: x-large;
-    margin-top: -15px;
+    /* margin-top: -15px; */
+    padding-inline-end: 40px;
   }
 
   .footer-right-social a{
-    float: left;
+    float: right;
     color: white;
     padding: 0 5px;
   }
@@ -504,19 +541,19 @@
   }
 
   @media (max-width: 992px) {
-    .col-md-4 > img {
+    div.more-posts > div.row > div.col-md-4 > img {
       width: 200px;
     }
   }
 
   @media (min-width: 992px) and (max-width: 1199px) {
-    .col-md-4 > img {
+    div.more-posts > div.row > div.col-md-4 > img {
       width: 190px;
     }
   }
 
   @media (min-width: 1200px) {
-    .col-md-4 > img {
+    div.more-posts > div.row > div.col-md-4 > img {
       width: 230px;
     }
   }
