@@ -1,12 +1,13 @@
 from django.urls import path
 from django.conf.urls import url
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import PostSitemap
+from .sitemaps import PostSitemap, PageSitemap
 from blog import views 
 # from .sitemaps import PostSitemap
 
 sitemaps = {
     'posts': PostSitemap,
+    'pages' : PageSitemap,
 }
 
 
