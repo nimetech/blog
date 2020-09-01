@@ -1,49 +1,81 @@
 <!DOCTYPE html>
-<!-- {% load static %} -->
+<!--{% load static %} -->
+{% load google_analytics %}
+{% load static compress %}
 <html xmlns="w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
     <head>
         <title>Linux-id.net | {% block title %}Learn from Problem Solved{% endblock %}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="styelsheet">
+        <meta name="robots" content="index, follow" />
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+       
+        {% compress css %}
         <link rel="stylesheet" href="{% static 'front/style.css' %}" type="text/css" />
+        {% endcompress %}
+        {% compress css %}
+        <link rel="stylesheet" href="{% static 'front/prism.css' %}" type="text/css" />
+        {% endcompress %}
+
         <link rel="shortcut icon" href="{% static 'images/logo-linuxid.ico' %}">
         <link rel="canonical" href="https://linux-id.net{% block canonical %}{% endblock %}">
-
-
+    
+        {% google_analytics %}
+    
+        {% compress js %}
         <script language="JavaScript" type="text/javascript" src="{% static 'front/js/style.js' %}"></script>
-        <!-- <script src="https://kit.fontawesome.com/f24ae733e2.js" crossorigin="anonymous"></script> -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        {% block seo %}
+        {% endcompress %}
+        {% compress js %}
+        <script language="JavaScript" type="text/javascript" src="{% static 'front/js/prism.js' %}"></script>
+        {% endcompress %}
+	{% load static sekizai_tags %}
+	{% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
+	{% addtoblock "css" %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	{% endaddtoblock %}
+    {% addtoblock "css" %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+	{% endaddtoblock %}
+	<!-- <script src="https://kit.fontawesome.com/f24ae733e2.js" crossorigin="anonymous"></script> -->
+	
+    {% addtoblock "js" %}        
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    {% endaddtoblock %}
+    {% addtoblock "js" %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    {% endaddtoblock %}
+    {% addtoblock "js" %}
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    {% endaddtoblock %}
         
-        <meta name="description" content="Linux-id.net is blog learning about Linux and to be a DevOps or Linux System Administration">
+        {% block seo %}
+        <meta name="description" content="Linux-id.net is blog learning about Linux and be a DevOps or Linux System Administration">
         <meta name="author" content="linuxid">
         <meta name="keyword" content="Linux-id.net, DevOps, Linux System Administration, Linux, How To">
+        
         <!-- meta facebook share -->
         <meta property="og:url" content="https://{{ request.get_host }}">
         <meta property="og:type" content="website">
         <meta property="og:locale" content="en_US">
         <meta property="og:title" content="{{ request.get_host }}">
-        <meta property="og:description" content="Linux-id.net is blog learning about Linux and to be a DevOps or Linux System Administration">
+        <meta property="og:description" content="Linux-id.net is a blog learning about command Linux and how to be a DevOps or Linux System Administration. This blog share tutorial, tips and trick, and how to use a command in Linux">
         <meta property="og:image" content="https://{{ request.get_host }}{% static 'images/logo-linuxid.svg' %}">
         <meta property="og:site_name" content="{{ request.get_host }}"/>
+        
         <!-- meta Twitter Card Data -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="{{ request.get_host }}">
-        <meta name="twitter:description" content="Linux-id.net is blog learning about Linux and to be a DevOps or Linux System Administration">
+        <meta name="twitter:description" content="Linux-id.net is blog learning about Linux and be a DevOps or Linux System Administration">
         <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'images/logo-linuxid.svg' %}">
         <meta name="twitter:domain" content="{{ request.get_host }}">
         <meta name="twitter:creator" content="@buruh_serabutan">
 
         {% endblock seo %}
-        
-    </head>
 
+        {% load render_json_ld from json_ld %}
+        {% render_json_ld sd %}
+    </head>
     <body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4">
         <!-- Navbar -->
         {% block header %}
@@ -67,5 +99,6 @@
             {% include 'footer.html' %}
         {% endblock footer %}
         <!-- End of Footer -->
+	{% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
     </body>
 </html>

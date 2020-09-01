@@ -13,7 +13,8 @@
       <a class="navbar-brand page-scroll custom-svg " href="{% url 'blog_index' %}">
           <!-- LinuxID -->
           <object type="image/svg+xml" data="{% static 'images/logo-linuxid.svg' %}" class="logo"></object>
-          <span class="title-hd">LinuxID</span>
+          <!--<span class="title-hd">LinuxID</span>-->
+          <object type="image/svg+xml" data="{% static 'images/linuxid.svg' %}" class="logo-linuxid"></object>
 
       </a>
       
@@ -26,23 +27,25 @@
               <a href="#page-top"></a>
           </li>
           <li class="">
-              <a class="page-scroll" href="{% url 'blog_index' %}">Home</a>
+              <a class="page-scroll" href="{% url 'blog_index' %}"><i class="fas fa-home"></i> Home</a>
           </li>
           <li class="right-menu">
-              <a href="{% url 'category_post' slug='centos' %}"> CentOS</a>
+              <a href="{% url 'category_post' slug='centos' %}"><i class="fab fa-centos"></i> CentOS</a>
           </li>
           <li class="right-menu">
-              <a href="{% url 'category_post' slug='ubuntu' %}"> Ubuntu</a>                        
+              <a href="{% url 'category_post' slug='ubuntu' %}"><i class="fab fa-ubuntu"></i> Ubuntu</a>                        
+          </li>
+          <!--<li class="right-menu">-->
+          <!--    <a href="{% url 'category_post' slug='code' %}"><i class="fas fa-code"></i> Code</a>-->
+          <!--</li>-->
+          <li class="right-menu">
+            <a href="{% url 'category_post' slug='error' %}"><i class="fas fa-bug"></i> Error</a>
           </li>
           <li class="right-menu">
-              <a href="{% url 'category_post' slug='code' %}"> Code</a>
+              <a href="{% url 'category_post' slug='command' %}"><i class="fas fa-terminal"></i> Command</a>
           </li>
           <li class="right-menu">
-            <a href="{% url 'category_post' slug='error' %}"> Error</a>
-          </li>
-          <li class="right-menu">
-              <a href="{% url 'category_post' slug='devops' %}"> DevOps</a>
-          </li>
+              <a href="https://www.buymeacoffee.com/linuxid"><i class="fas fa-donate"></i> Donate</a>
           </li>
       </ul>
   </div>

@@ -8,7 +8,7 @@ def published(modeladmin, request, queryset):
 published.short_shortdescription = "Publish"
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'status', 'created_on', 'updated_on', 'author', 'category', 'tags')
+    list_display = ('title', 'slug', 'meta_keyword', 'meta_description', 'status', 'created_on', 'updated_on', 'author', 'category', 'tags')
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}

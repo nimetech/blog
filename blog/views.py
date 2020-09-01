@@ -6,7 +6,6 @@ from blog.models import Post, Category, Tag, Page
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.views.static import serve
 
-
 def forbidden_access(request, exception=None):
     response = render(request,
         'errors/404.html',{}

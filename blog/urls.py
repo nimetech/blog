@@ -1,13 +1,17 @@
 from django.urls import path
 from django.conf.urls import url
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import PostSitemap, PageSitemap
+from .sitemaps import PostSitemap, PageSitemap, CategorySitemap, TagSitemap, StaticViewSitemap
 from blog import views 
 # from .sitemaps import PostSitemap
+from .robots_txt import robots_txt
 
 sitemaps = {
     'posts': PostSitemap,
     'pages' : PageSitemap,
+    'tags' : TagSitemap,
+    'categories' : CategorySitemap,
+    'static' : StaticViewSitemap,
 }
 
 
@@ -22,5 +26,7 @@ urlpatterns = [
     # path('<slug:slug>/', views.blog_page, name='blog_page'),
     url(r'^page/(?P<slug>[-\w]+)/$', views.blog_page, name='blog_page'),
     # url(r'^page/(?P<slug>[-\w]+)/$', views.blog_page, name='blog_page'),
-    url(r'^sitemap\.xml/$', sitemap, {'sitemaps' : sitemaps } , name='sitemap'),
+    url(r'^sitemap\.xml', sitemap, {'sitemaps' : sitemaps } , name='sitemap'),
+    url(r'^robots\.txt', robots_txt),
+    # path("robots.txt", robots_txt),
 ]

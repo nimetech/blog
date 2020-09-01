@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # 'custom_admin',
     # 'djipsum',
     'svg',
+    'analytical',
 ]
 
 MIDDLEWARE = [
@@ -157,13 +158,20 @@ CKEDITOR_CONFIGS = {
     },
 }
 
+GOOGLE_ANALYTICS_PROPERTY_ID = 'GOOGLE_ANALITYCS_ID'
+GOOGLE_ANALYTICS_DISPLAY_ADVERTISING = True
+GOOGLE_ANALYTICS_SITE_SPEED = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 STATICFILES_DIRS = [BASE_DIR+"/assets/"]
 SVG_DIRS = [os.path.join(BASE_DIR, 'assets/images')]
 # STATICFILES_DIRS = (

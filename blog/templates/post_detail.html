@@ -5,8 +5,8 @@
 {% block seo %}
         
 <meta name="author" content="{{ post.author }}">
-<meta name="description" content="{{ post.content|safe|striptags|slice:'160' }}">
-<meta name="keyword" content="{{ post.title }}">
+<meta name="description" content="{{ post.meta_description|safe|striptags }}">
+<meta name="keyword" content="{{ post.meta_keyword }}">
 {% for tag in post.tag.all %}
 <meta name="article:tag" content="{{ tag.name }}">
 {%endfor%}
@@ -15,14 +15,14 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="{{ post.title }}">
-<meta property="og:description" content="{{ post.content|safe|striptags|slice:'160' }}">
+<meta property="og:description" content="{{ post.meta_description|safe|striptags }}">
 <meta property="og:image" content="https://{{ request.get_host }}{{ post.featured_image.url }}">
 <meta property="og:site_name" content="{{ request.get_host }}"/>
 
 <!-- meta Twitter Card Data -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ post.title }}">
-<meta name="twitter:description" content="{{ post.content|safe|striptags|slice:'160' }}">
+<meta name="twitter:description" content="{{ post.meta_description|safe|striptags }}">
 <meta name="twitter:image" content="https://{{ request.get_host }}{{ post.featured_image.url }}">
 <meta name="twitter:domain" content="{{ request.get_host }}">
 <meta name="twitter:creator" content="@buruh_serabutan">
@@ -47,8 +47,8 @@
         <div class="tags-top">
           <ul class="tags">
             {%for tag in post.tag.all%}
-            <li class="tag">
-                <a href="{{ tag.get_absolute_url }}">#{{ tag.name }}</a>
+            <li>
+                <a href="{{ tag.get_absolute_url }}" class="tag">#{{ tag.name }}</a>
             </li>
             {%endfor%}
           </ul>
@@ -63,11 +63,11 @@
             {% post_to_facebook object_or_url '<i class="fab fa-facebook-square"></i>'%}
           </div>
           <div class="col-xs-1" style="font-size:2.5em; width:auto; padding-left: 0;">
-            {% post_to_twitter "Read this Post: {{post.title}}. Check it out!" object_or_url '<i class="fab fa-twitter-square"></i>' %}
+            {% post_to_twitter "{{post.title}}. Check it out!" object_or_url '<i class="fab fa-twitter-square"></i>' %}
           </div>
-          <!-- <div class="col-xs-1" style="font-size:2.5em; width:auto; padding-left: 0;">
+          <div class="col-xs-1" style="font-size:2.5em; width:auto; padding-left: 0;">
             {% post_to_linkedin "{{post.title}}" object_or_url '<i class="fab fa-linkedin"></i>' %}
-          </div> -->
+          </div>
           <div class="col-xs-1" style="font-size:2.5em; width:auto; padding-left: 0;">
             {% post_to_telegram "Read this Post: {{post.title}}" object_or_url '<i class="fab fa-telegram"></i>'%}
           </div>

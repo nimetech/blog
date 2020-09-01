@@ -3,13 +3,15 @@
   <h4>More Articles</h4>
   <div class="row">
       {% for post in similar %}
+      
       <div class="col-md-4">
-        
         <img src={{post.featured_image.url}} alt="{{post.title}}">
         <p style="margin: 10px 0 0 0;"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}</p>
-        <p>
-          <b>{{post.title}}</b>
-        </p>
+        <a href="{% url 'post_detail' post.slug %}">
+            <p>
+                <b>{{post.title}}</b>
+            </p>
+        </a> 
        </div>
       {%endfor%}
   </div>

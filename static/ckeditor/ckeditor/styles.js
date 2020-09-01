@@ -58,7 +58,12 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Subscript',		element: 'sub' },
 	{ name: 'Superscript',		element: 'sup' },
 	*/
+	{ name: 'Highlight',		element: 'pre', attributes: { 'class': 'command-line language-bash', 'data-user': 'linuxid', 'data-host': 'linux-id.net', 'data-output': '2-100'} },
+	
+	{ name: 'Box Code',		element: 'pre', attributes: { 'class': 'language-bash' } },
 
+
+ 
 	{ name: 'Marker',			element: 'span', attributes: { 'class': 'marker' } },
 
 	{ name: 'Big',				element: 'big' },

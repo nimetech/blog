@@ -1,9 +1,11 @@
 from django.db import models
 from django.utils.safestring import mark_safe
+from django.contrib.sitemaps import ping_google
 
 # Create your models here.
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
+
 
 STATUS = (
     (0, "Draft"),
@@ -30,6 +32,13 @@ class Category(models.Model):
     
     def get_absolute_url(self):
         return F"/category/{self.slug}/"
+        
+    def save(self):
+        super(Category,self).save()
+        try:
+            ping_google('/sitemap.xml')
+        except Exception : 
+            pass
 
 class Tag(models.Model):
     name = models.CharField(max_length=150)
@@ -40,19 +49,29 @@ class Tag(models.Model):
 
     def get_absolute_url(self):
         return F"/tag/{self.slug}/"
+        
+    def save(self):
+        super(Tag,self).save()
+        try:
+            ping_google('/sitemap.xml')
+        except Exception : 
+            pass
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete= models.CASCADE, related_name= 'blog_posts', default=1)
     # content = models.TextField()
-    featured_image = models.ImageField(upload_to='featured_image', default = 'featured_image/none.jpg')
+    meta_keyword = models.CharField(max_length=200, default=None)
+    meta_description = models.TextField(max_length=200,default=None)
+    featured_image = models.ImageField(upload_to='featured_image', default = 'featured_image/none.png')
     content = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name= 'posts_category')
     tag = models.ManyToManyField(Tag, related_name= 'tags_post')
+
 
     class Meta:
         ordering = ['-created_on']
@@ -66,6 +85,14 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return F"/post/{self.slug}/"
+        
+    def save(self):
+        super(Post,self).save()
+        try:
+            ping_google('/sitemap.xml')
+        except Exception : 
+            pass
+        
 
 class Page(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -84,3 +111,10 @@ class Page(models.Model):
 
     def get_absolute_url(self):
         return F"/page/{self.slug}/"
+        
+    def save(self):
+        super(Page,self).save()
+        try:
+            ping_google('/sitemap.xml')
+        except Exception : 
+            pass

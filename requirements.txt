@@ -9,3 +9,10 @@ djipsum
 faker
 django-inline-svg
 django-social-share
+django-analytical
+django-json-ld
+django-compressor
+cssmin
+jsmin
+django-sekizai
+django-staticfiles

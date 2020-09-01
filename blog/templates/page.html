@@ -1,5 +1,5 @@
 {% extends 'base.html' %} 
-
+{% block canonical %}{{ request.path }}{% endblock %}
 {% block seo %}
         
 <meta name="author" content="{{ page.author }}">
@@ -28,7 +28,7 @@
 
 <div class="container">
   <div class="row ">
-    <div class="col-md-12 page-block">
+    <div class="col-md-12">
       <div class="card-body">
         <h1>{% block title %} {{ page.title }} {% endblock title %}</h1>
         <p class=" text-muted"> Updated {{ page.created_on | date:"d F Y" }}</p>
