@@ -62,7 +62,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete= models.CASCADE, related_name= 'blog_posts', default=1)
     # content = models.TextField()
-    meta_keyword = models.CharField(max_length=200, default=None)
+    meta_keyword = models.CharField(max_length=750, default=None)
     meta_description = models.TextField(max_length=200,default=None)
     featured_image = models.ImageField(upload_to='featured_image', default = 'featured_image/none.png')
     content = RichTextUploadingField()
