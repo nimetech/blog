@@ -11,11 +11,11 @@
                                                         <img src="{{ post.featured_image.url }}" class="img-responsive" alt="{{ post.title }}">
                                                 </div>
                                                 <div class="col-md-8 ">
-                                                                <a href="{% url 'post_detail' post.slug %}"><h2 class="">{{ post.title }}</h2></a>
+                                                                <a href="{% url 'post_detail' post.slug %}" style="text-decoration:none;" style="text-decoration:none;"><h2 class="">{{ post.title }}</h2></a>
                                                                 <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
                                                                 <!-- <p class="card-text text-muted h6"><i class="fas fa-paperclip"></i> {{ post.category }}</p> -->
-                                                                <div class="justify">{{ post.content| slice:":300"| safe | striptags}}</div>
-                                                                <a href="{% url 'post_detail' post.slug  %}" class="read-more">Read More <i class="fas fa-chevron-circle-right"></i></a>
+                                                                <div class="justify">{{ post.content| slice:":250"| safe | striptags}}</div>
+                                                                <a href="{% url 'post_detail' post.slug  %}" class="read-more" style="text-decoration:none;">Read More <i class="fas fa-chevron-circle-right"></i></a>
                                                 </div>
                                                 
                                         </section>
@@ -24,12 +24,12 @@
                                 <div class="col-md-10 col-md-offset-1">
                                         <ul class="pager">   
                                                 {% if posts_view.has_previous %}
-                                                        <li class="previous"><a href="?page={{ posts_view.previous_page_number }}"><i class="fas fa-angle-double-left"></i> Previous</a></li>
+                                                        <li class="previous"><a href="?page={{ posts_view.previous_page_number }}" style="text-decoration:none;"><i class="fas fa-angle-double-left"></i> Previous</a></li>
                                                 {% else %}
                                                         <li class="previous"><a title="End of Posts"><i class="fas fa-angle-double-left"></i> Previous</a></li>
                                                 {% endif %}
                                                 {% if posts_view.has_next %}
-                                                        <li class="next"><a href="?page={{ posts_view.next_page_number }}">Next <i class="fas fa-angle-double-right"></i></a></li>
+                                                        <li class="next"><a href="?page={{ posts_view.next_page_number }}" style="text-decoration:none;">Next <i class="fas fa-angle-double-right"></i></a></li>
                                                 {% else %}
                                                         <li class="next"><a title="End of Posts">Next <i class="fas fa-angle-double-right"></i></a></li>
                                                 {% endif %}
@@ -46,7 +46,7 @@
                         <section>
                                 <img src="{{ latest.featured_image.url }}" class="img-responsive" alt="{{ latest.title }}">
                                 <h6><span class="card-text text-muted h6"><i class="far fa-clock"></i> {{ latest.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ latest.category }}</span></h6>
-                                <a href="{% url 'post_detail' latest.slug %}"><h2 class="h2-latest">{{ latest.title }}</h2></a>
+                                <a href="{% url 'post_detail' latest.slug %}" style="text-decoration:none;"><h2 class="h2-latest">{{ latest.title }}</h2></a>
                         </section>
                 </div>
                 <!-- End Section New Post -->
@@ -60,7 +60,7 @@
                                 <div class="col-md-8">
                                         <section>
                                                 <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
-                                                <a href="{% url 'post_detail' post.slug %}"><h2 class="h2-top-three">{{ post.title }}</h2></a>
+                                                <a href="{% url 'post_detail' post.slug %}" style="text-decoration:none;"><h2 class="h2-top-three">{{ post.title }}</h2></a>
                                         </section>
                                 </div>
                         </div>
@@ -72,17 +72,17 @@
                 
                 <div class="row">
                         <div class="col-md-8">
-                                {% for post in posts_view%}
+                                {% for post in exclude%}
                                 <div class="row separate-line post-pd">
                                         <section class="padding-bt-post-list">
                                                 <div class="col-md-4 post-image">
                                                         <img src="{{ post.featured_image.url }}" class="img-responsive" alt="{{ post.title }}">
                                                 </div>
                                                 <div class="col-md-8">
-                                                                <a href="{% url 'post_detail' post.slug %}"><h2>{{ post.title }}</h2></a>
+                                                                <a href="{% url 'post_detail' post.slug %}" style="text-decoration:none;"><h2>{{ post.title }}</h2></a>
                                                                 <p class="card-text text-muted h6"><i class="far fa-clock"></i> {{ post.created_on |  date:"d F Y"  }}<i class="fas fa-paperclip padding-left-category"></i> {{ post.category }}</p>
                                                                 <div class="justify">{{ post.content| slice:":250"| safe | striptags }}</div>
-                                                                <a href="{% url 'post_detail' post.slug  %}" class="read-more">Read More <i class="fas fa-chevron-circle-right"></i></a>
+                                                                <a href="{% url 'post_detail' post.slug  %}" class="read-more" style="text-decoration:none;">Read More <i class="fas fa-chevron-circle-right"></i></a>
                                                 </div>
                                                 
                                         </section>
@@ -92,12 +92,12 @@
                                 <div class="col-md-10 col-md-offset-1">
                                         <ul class="pager">   
                                                 {% if posts_view.has_previous %}
-                                                        <li class="previous"><a href="?page={{ posts_view.previous_page_number }}"><i class="fas fa-angle-double-left"></i> Previous</a></li>
+                                                        <li class="previous"><a href="?page={{ posts_view.previous_page_number }}" style="text-decoration:none;"><i class="fas fa-angle-double-left"></i> Previous</a></li>
                                                 {% else %}
                                                         <li class="previous"><a title="End of Posts"><i class="fas fa-angle-double-left"></i> Previous</a></li>
                                                 {% endif %}
                                                 {% if posts_view.has_next %}
-                                                        <li class="next"><a href="?page={{ posts_view.next_page_number }}">Next <i class="fas fa-angle-double-right"></i></a></li>
+                                                        <li class="next"><a href="?page={{ posts_view.next_page_number }}" style="text-decoration:none;">Next <i class="fas fa-angle-double-right"></i></a></li>
                                                 {% else %}
                                                         <li class="next"><a title="End of Posts">Next <i class="fas fa-angle-double-right"></i></a></li>
                                                 {% endif %}

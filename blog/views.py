@@ -31,10 +31,10 @@ def blog_index(request):
     # pages = Page.objects.filter(status = 1)
     latest = Post.objects.filter(status = 1).latest('created_on')
     top_three = Post.objects.filter(status = 1).order_by('-created_on')[1:4]
-    exclude = Post.objects.filter(status = 1).order_by('-created_on')[4:]
+    exclude = Post.objects.filter(status = 1).order_by('-created_on')[4:10]
     posts = Post.objects.filter(status = 1).order_by('-created_on')
-    recent_post = Post.objects.filter(status = 1).order_by('-created_on')[0:5]
-    paginator = Paginator(exclude, 10) # Post per view set to 10 
+    recent_post = Post.objects.filter(status = 1).order_by('-created_on')[0:7]
+    paginator = Paginator(posts, 10) # Post per view set to 10 
     page = request.GET.get('page')
     try: 
         posts_view = paginator.page(page)
