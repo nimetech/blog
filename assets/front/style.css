@@ -118,7 +118,8 @@
   }
   
   section > a,
-  section > div > a {
+  section > div > a,
+  div > a {
     color: #222;
   }
   
