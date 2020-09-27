@@ -2,6 +2,11 @@ from django.db import models
 from django.utils.safestring import mark_safe
 from django.contrib.sitemaps import ping_google
 
+# from io import BytesIO
+# from PIL import Image
+# from django.core.files import File
+from .compress import compress
+
 # Create your models here.
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -64,7 +69,8 @@ class Post(models.Model):
     # content = models.TextField()
     meta_keyword = models.CharField(max_length=750, default=None)
     meta_description = models.TextField(max_length=200,default=None)
-    featured_image = models.ImageField(upload_to='featured_image', default = 'featured_image/none.png')
+    # featured_image = models.ImageField(upload_to='featured_image', default = 'featured_image/none.png')
+    featured_image = models.ImageField(default = 'featured_image/none.png')
     content = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -86,8 +92,24 @@ class Post(models.Model):
     def get_absolute_url(self):
         return F"/post/{self.slug}/"
         
-    def save(self):
+    # def compress(featured_image):
+    #     im = Image.open(featured_image)
+    #     # create a BytesIO object
+    #     im_io = BytesIO() 
+    #     # save image to BytesIO object
+    #     im.save(im_io, 'PNG', quality=70) 
+    #     # create a django-friendly Files object
+    #     new_image = File(im_io, name=featured_image.name)
+    #     return new_image
+        
+    def save(self,*args, **kwargs):
         super(Post,self).save()
+        # call the compress function
+        new_image = compress(self.featured_image)
+        # set self.image to new_image
+        self.featured_image = new_image
+        # save
+        super().save(*args, **kwargs)
         try:
             ping_google('/sitemap.xml')
         except Exception : 
