@@ -69,7 +69,7 @@ class Post(models.Model):
     # content = models.TextField()
     meta_keyword = models.CharField(max_length=750, default=None)
     meta_description = models.TextField(max_length=200,default=None)
-    # featured_image = models.ImageField(upload_to='featured_image', default = 'featured_image/none.png')
+    #featured_image = models.ImageField(upload_to='featured_image', default = 'featured_image/none.png')
     featured_image = models.ImageField(default = 'featured_image/none.png')
     content = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)
