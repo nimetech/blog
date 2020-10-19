@@ -211,11 +211,13 @@
   }
 
   .title-hd{
-      font-family: 'Krungthep', sans-serif;
+      /*font-family: 'Krungthep', sans-serif;*/
+      font-family: 'DTLProkyonST';
       margin-top: 30px;
       position: fixed;
       font-size: 1.3em;
       color: #222222;
+      left: 50px;
   }
   
   .navbar-default .navbar-nav > .active > a {
@@ -442,8 +444,8 @@
 
   .sidebar-recent-post{
     /* margin-left: -20px; */
-    text-decoration: none;
     text-align: justify;
+    font-weight: 600;
   }
 
   .sidebar-recent-post ul {
